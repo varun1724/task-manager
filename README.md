@@ -19,8 +19,12 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
+The members of my group and I want to become more productive and being able to make a high quality, responsive, task scheduler would help a large amount to reach our goals. Being able to be productive has always been a problem, and having a task scheduler would at the very least help us prioritize the tasks most important to us. Prioritizing constantly scheduling tasks would slowly help our group members to reach our personal productivity goals and to complete more tasks/goals. A good example of a task/goal for both of our group members is to increase/maintain the amount of good grades that we have in school.
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+ Our group plans to use C++ as our main language as C++ is incredibly responsive and in the long term is incredibly efficient. Due to us using C++, we would have to use Valgrind to check for memory leaks, GDB for debugging, Visual Studio Code as our IDE and to be able to connect to UCR's servers, GitHub for distributed version control, for Scrum we are using GitHub, MoqUps/LucidChart for diagrams, and the GTest structure for unit tests.
  > * What will be the input/output of your project?
+ Input - Tasks and times for the task
+ Output - The tasks that need to be done at the specific time/date.
  > * What are the features that the project provides?
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
