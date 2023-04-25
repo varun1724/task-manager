@@ -5,7 +5,7 @@
 # Task Scheduler
  > Your author list below should include links to all members GitHub (remove existing author).
  
- > Authors: [Pranay Singh Thakur](https://github.com/pthak008)[James Chang](https://github.com/jchan517)
+ > Authors: [Pranay Singh Thakur](https://github.com/pthak008) [James Chang](https://github.com/jchan517)
 
  > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
 
@@ -23,10 +23,8 @@ The members of my group and I want to become more productive and being able to m
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  Our group plans to use C++ as our main language as C++ is incredibly responsive and in the long term is incredibly efficient. Due to us using C++, we would have to use Valgrind to check for memory leaks, GDB for debugging, Visual Studio Code as our IDE and to be able to connect to UCR's servers, GitHub for distributed version control, for Scrum we are using GitHub, MoqUps/LucidChart for diagrams, and the GTest structure for unit tests.
  > * What will be the input/output of your project?
- Input - Tasks and times for the task
- Input - Priority assignment
- Output - The tasks that need to be done at the specific time/date.
- Output - Some type of marker to show the priority of the tasks.
+ Input - Tasks and times for the task, Priority assignment
+ Output - The tasks that need to be done at the specific time/date and their priority value.
  > * What are the features that the project provides?
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
   The task manager will prompt users if they want to see their tasks or add a task. If the user wants to see their tasks, it will output all the tasks with the tasks with earlier dates displayed first. Tasks with the same date will be displayed by the ones with higher priority value. If they user instead wants add a task. The program will prompt the user to enter the name of the task, then the date, and lastly assign a priority value to the task.
