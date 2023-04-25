@@ -1,14 +1,32 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10966041&assignment_repo_type=AssignmentRepo)
 # \<Task Scheduler\>
  
- > Authors: \<[Pranay Singh Thakur](https://github.com/pthak008)\>\<[James Chang](https://github.com/jchan517)\>
+ > Authors: \<[Pranay Singh Thakur](https://github.com/pthak008)\>\<[James Chang](https://github.com/jchan517)\><[Varun Saraf]()\>
 
 ## Project Description
 Technologies:
- Our group plans to use C++ as our main language as C++ is incredibly responsive and in the long term is incredibly efficient. Due to us using C++, we would have to use Valgrind to check for memory leaks, GDB for debugging, Visual Studio Code as our IDE and to be able to connect to UCR's servers, GitHub for distributed version control, for Scrum we are using GitHub, MoqUps/LucidChart for diagrams, and the GTest structure for unit tests.
+ Our group plans to use C++ as our main language as C++ is incredibly responsive and in the long term is incredibly efficient. 
+ 
+Due to us using C++, we would have to use Valgrind to check for memory leaks.
+GDB for debugging. 
+Visual Studio Code as our IDE and to be able to connect to UCR's servers.
+GitHub for distributed version control. 
+For Scrum we are using GitHub MoqUps/LucidChart for diagrams. 
+The GTest structure for unit tests. 
+Vim would be used for quick edits for files such as CMakeLists.txt
+CMake would be used to compile our C++ code into an executable.
+Git would be used to allow us to make changes and keep track of stuff locally for our repository.
 
 Description:
 The members of my group and I want to become more productive and being able to make a high quality, responsive, task scheduler would help a large amount to reach our goals. Being able to be productive has always been a problem, and having a task scheduler would at the very least help us prioritize the tasks most important to us. Prioritizing constantly scheduling tasks would slowly help our group members to reach our personal productivity goals and to complete more tasks/goals. A good example of a task/goal for both of our group members is to increase/maintain the amount of good grades that we have in school. To achieve these longterm goals for us in this project, the project needs a complex featureset that can help to reach these goals step step. The features would be an internal calendar that enables the insertion and retrieval of tasks with their dates and times. Users of this project can schedule events and tasks infinitely far in the future, enabling each user to be able to reach specific goals and targets incrementally using these tasks. Also, users can assign these specific tasks for specific goals, so if the user has a specific goal they can assign a large amount of tasks to be able to achieve this goal. The task scheduler would also help users to be individually be able to time manage specific tasks, since presets can be added for each day so if the user has recurring events, timeslots can be blocked in case a task conflicts (this can be overriden in certain scenarios but it would prevent the user from overcommitting). Also, the user can check the amount of hours the combination of tasks would take as a way to prevent overcommitting in the longterm. The task scheduler would be able to suggest times through remembering some of the users most done tasks combined with looking at existing tasks and reserved blocks that are scheduled. This project's goal is to be the ultimate task scheduler so that our group would be able to schedule tasks in the long run.
+
+Projects Inputs/Outputs:
+
+Inputs:
+Users would able to input their existing schedules and recurring tasks. New tasks and their specific times/dates. They can also input their long term goals to match specific tasks to.
+
+Outputs:
+Users can retrieve thier specific tasks/goals. They can also retrieve the progression for these tasks/goals. Tehy can also retrieve the times/dates/scheduled time of teach task.
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
