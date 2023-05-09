@@ -60,8 +60,6 @@ This screen is a pop up that shows if the user clicks the button to add a new ev
 Above is the OMT class Diagram for the Task Scheduler. The Program functions by providing the user with a basic user interface that shows a calendar. The TaskScheduler class is composed of a Calendar object and a Scheduler object. When the startTaskManager() function is called from main, a case begins to handle the UI of the program and call the functions in both the Calendar and Scheduler classes to be able to display a calendar and allow for it to function. The Design for the program's menus and directories can be found in the user interface above. The task scheduler uses the Singleton design pattern to ensure that only one instance of a task management is created at a time so that the Task Manager can instatiate only one Task Management window at a time. The Task Manager class also contains a ClearScreen() object to be able to close out of the Task Manager.
 
 
-
-A string representation for each encounter will be returned to the Room class when the getEncounter() function is called by the getEncounter() function in the Room class, and the Dungeon class will call the getEncounter() function for each room so that it can display the encounters for each room in the Dungeon Display Menu.
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
  
