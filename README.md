@@ -59,6 +59,14 @@ This screen is a pop up that shows if the user clicks the button to add a new ev
 
 Above is the OMT class Diagram for the Task Scheduler. The Program functions by providing the user with a basic user interface that shows a calendar. The TaskScheduler class is composed of a Calendar object and a Scheduler object. When the startTaskManager() function is called from main, a case begins to handle the UI of the program and call the functions in both the Calendar and Scheduler classes to be able to display a calendar and allow for it to function. The Design for the program's menus and directories can be found in the user interface above. The task scheduler uses the Singleton design pattern to ensure that only one instance of a task management is created at a time so that the Task Manager can instatiate only one Task Management window at a time. The Task Manager class also contains a ClearScreen() object to be able to close out of the Task Manager.
 
+The storage class helps the Task Manager to store the tasks persistently to a file or a database (we haven't decided yet). The db class interfaces with the file or database. This allows the project to potentially scale if we wanted to in the future, and we can use a variety of storage methods.
+
+The calendar class displays the tasks on a daily basis, it in turn uses the Day class which is made up of a number of tasks in that specific day. In the day class we can add tasks, delete tasks, and edit tasks.
+
+The interaction of the classes is like this:
+
+When the application starts it loads the task data using the storage class which in turn receives stored user data from the db class, then the task data is populated in the calendar and displayed. When the user clicks on a particular day, they would see the task in that specific day. Through clicking the day, the user would be able to add, delete, and edit the task. The task manager also uses the scheduler which in turn uses the task data to prioritize the tasks as per the priority given by the user. The user would be able to edit the tasks and increase or decrease the priority. A task can also be made up of subtasks.
+
 
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
