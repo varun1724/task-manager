@@ -36,7 +36,21 @@ Users can retrieve thier specific tasks/goals. They can also retrieve the progre
 
 
 ### Screen Layouts
-> Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
+![Month Page](https://user-images.githubusercontent.com/112217896/236991391-739dc74a-b681-4a29-877e-2057d6b0f418.jpg)
+
+This screen displays the main calendar along with the names of the tasks that the user has assigned for themselves. On the right a section is displayed for the goals that the user has assigned themselves for the month. The top section displays two buttons that when clicked can be used to add new events or goals. Each individual goal can also be clicked into, bringing the screen to a new screen that displays any tasks assigned to the specific goal. Next to the goals, the set of arrows will change the month forwards and backwards. If a specific date is clicked, then the screen changes to the day screen, as described next.
+
+![Day Screen](https://user-images.githubusercontent.com/112217896/236991446-8e49cd81-a10c-4bb7-8af1-b619bf2ad6fe.jpg)
+
+This screen displays an individual day along with the events that a user has planned. It shows the events next to the time that they have been planned for, along with a description under their title. If the user clicks on a goal, they will have the option to edit or delete it. On the right, the same goal screen as the month page is shown with the same functionality. The top also displays the same new event and goal buttons as the month page. The forward and backwards arrows can be used to change days, and the back button at the top left will navigate back to the month screen.
+
+![Individual Goal Screen](https://user-images.githubusercontent.com/112217896/236991431-1f34215f-4452-400a-9179-ca79f2414ac4.jpg)
+
+This screen displays an individual goal and the specific tasks assigned to the goal. Users have the option to edit, delete, or add new tasks to the goal. They can also add a new goal, as the goal screen from before remains unchanged. The arrows will bring the user to the next or previous goal, and the back arrow at the top left will bring the user back to the day screen. 
+
+![Add event pop-up screen](https://user-images.githubusercontent.com/112217896/236991470-292dfc35-43b3-4646-9fb4-fb0a8b636b11.jpg)
+
+This screen is a pop up that shows if the user clicks the button to add a new event or task. It prompts the user for information about the event/task they are going to add and has two buttons to confirm or cancel this addition
 
 
 ### Class Diagram
