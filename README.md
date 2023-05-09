@@ -32,7 +32,7 @@ Users can retrieve thier specific tasks/goals. They can also retrieve the progre
 ### Navigation Diagram
 ![Navagation Diagram](https://user-images.githubusercontent.com/111487418/236964289-99dc8ef3-c7df-4871-867f-4f7e66d85874.png)
 
-The user is able to navegate between the month and day screens by either clicking on the individual dates or the back button on the date screen. From both the day and month screen, the user is able to access the goals screen by clicking on the goals text on the side of the calendar. The user is able to turn back to either to day or month screen from the goals screen by pressing the back button. From the day, month and goals screen, users are able to add new events/goals by clicking the respective buttons, and are also able to turn by either clicking the confirm button or the cancel button to return without adding anything.
+The user is able to navigate between the month and day screens by either clicking on the individual dates or the back button on the date screen. From both the day and month screen, the user is able to access the goals screen by clicking on the goals text on the side of the calendar. The user is able to turn back to either to day or month screen from the goals screen by pressing the back button. From the day, month and goals screen, users are able to add new events/goals by clicking the respective buttons, and are also able to turn by either clicking the confirm button or the cancel button to return without adding anything.
 
 
 ### Screen Layouts
@@ -56,6 +56,12 @@ This screen is a pop up that shows if the user clicks the button to add a new ev
 ### Class Diagram
 
 ![umlclassdiagram](https://user-images.githubusercontent.com/103800231/236993307-6cf53752-905b-4580-b8d6-6b1def90e44c.png)
+
+Above is the OMT class Diagram for the Task Scheduler. The Program functions by providing the user with a basic user interface that shows a calendar. The TaskScheduler class is composed of a Calendar object and a Scheduler object. When the startTaskManager() function is called from main, a case begins to handle the UI of the program and call the functions in both the Calendar and Scheduler classes to be able to display a calendar and allow for it to function. The Design for the program's menus and directories can be found in the user interface above. The task scheduler uses the Singleton design pattern to ensure that only one instance of a task management is created at a time so that the Task Manager can instatiate only one Task Management window at a time. The Task Manager class also contains a ClearScreen() object to be able to close out of the Task Manager.
+
+
+
+A string representation for each encounter will be returned to the Room class when the getEncounter() function is called by the getEncounter() function in the Room class, and the Dungeon class will call the getEncounter() function for each room so that it can display the encounters for each room in the Dungeon Display Menu.
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
  
