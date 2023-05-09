@@ -28,7 +28,6 @@ Outputs:
 Users can retrieve thier specific tasks/goals. They can also retrieve the progression for these tasks/goals. Tehy can also retrieve the times/dates/scheduled time of teach task.
 ## User Interface Specification
 
-# > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
 ![Navagation Diagram](https://user-images.githubusercontent.com/111487418/236964289-99dc8ef3-c7df-4871-867f-4f7e66d85874.png) 
