@@ -41,7 +41,7 @@ Users can retrieve thier specific tasks/goals. They can also retrieve the progre
 
 ### Class Diagram
 
-![Class Diagram](https://github.com/cs100/final-project-pthak008-jchan517-2/blob/master/umlclassdiagram.png)
+![umlclassdiagram](https://user-images.githubusercontent.com/103800231/236993307-6cf53752-905b-4580-b8d6-6b1def90e44c.png)
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
  
