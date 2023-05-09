@@ -6,7 +6,6 @@
 ## Project Description
 Technologies:
  Our group plans to use C++ as our main language as C++ is incredibly responsive and in the long term is incredibly efficient. 
- 
 Due to us using C++, we would have to use Valgrind to check for memory leaks.
 GDB for debugging. 
 Visual Studio Code as our IDE and to be able to connect to UCR's servers.
@@ -32,7 +31,8 @@ Users can retrieve thier specific tasks/goals. They can also retrieve the progre
 # > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
-![Navagation Diagram](https://user-images.githubusercontent.com/111487418/236964289-99dc8ef3-c7df-4871-867f-4f7e66d85874.png) The user is able to navegate between the month and day screens by either clicking on the individual dates or the back button on the date screen. From both the day and month screen, the user is able to access the goals screen by clicking on the goals text on the side of the calendar. The user is able to turn back to either to day or month screen from the goals screen by pressing the back button. From the day, month and goals screen, users are able to add new events/goals by clicking the respective buttons, and are also able to turn by either clicking the confirm button or the cancel button to return without adding anything.
+![Navagation Diagram](https://user-images.githubusercontent.com/111487418/236964289-99dc8ef3-c7df-4871-867f-4f7e66d85874.png) 
+The user is able to navegate between the month and day screens by either clicking on the individual dates or the back button on the date screen. From both the day and month screen, the user is able to access the goals screen by clicking on the goals text on the side of the calendar. The user is able to turn back to either to day or month screen from the goals screen by pressing the back button. From the day, month and goals screen, users are able to add new events/goals by clicking the respective buttons, and are also able to turn by either clicking the confirm button or the cancel button to return without adding anything.
 
 
 ### Screen Layouts
