@@ -30,9 +30,8 @@ Users can retrieve thier specific tasks/goals. They can also retrieve the progre
 
 
 ### Navigation Diagram
-![Navagation Diagram](https://user-images.githubusercontent.com/111487418/236964289-99dc8ef3-c7df-4871-867f-4f7e66d85874.png)
-
-The user is able to navigate between the month and day screens by either clicking on the individual dates or the back button on the date screen. From both the day and month screen, the user is able to access the goals screen by clicking on the goals text on the side of the calendar. The user is able to turn back to either to day or month screen from the goals screen by pressing the back button. From the day, month and goals screen, users are able to add new events/goals by clicking the respective buttons, and are also able to turn by either clicking the confirm button or the cancel button to return without adding anything.
+![Navagation Diagram](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/111487418/0b0005b3-9afd-4dcc-83c8-4a874ad4aeef)
+The user is greeted with a menu upon running the program. They are prompted to enter certain inputs to access certain functions. The user will be able to access the month,day,and goals directly. The will be able to add and remove tasks from those classes or display all tasks in those classes. If the user chooses to display from the main menu, they will be able to see a list of the most relevant tasks.
 
 
 ### Screen Layouts
