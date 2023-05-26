@@ -1,11 +1,33 @@
 #include <iostream>
 using namespace std;
 int showCreateTaskMenu() {
-    system("clear");
-    cout << "Create Task Menu." << endl;
-    cout << "2. Back" << endl;
-    int input;
-    cin >> input;
+    while(true) {
+        system("clear");
+        cout << "Create Task Menu." << endl;
+        cout << "1. Add New Task." << endl;
+        cout << "2. Back" << endl;
+        int input;
+        cin >> input;
+        if(input == 1) {
+            string name;
+            string desc;
+            string date;
+            string time;
+            cout << "Enter Event or Task Name:" << endl;
+            cin >> name;
+            cout << "Enter Description:" << endl;
+            cin >> desc;
+            cout << "Enter Date:" << endl;
+            cin >> date;
+            cout << "Enter Time:" << endl;
+            cin >> time;
+            cout << "1. Save" << endl;
+            cout << "2. Cancel" << endl;
+            cin >> input;
+        } else if(input == 2) {
+            return 0;
+        }
+    }
     return 0;
 }
 int editTaskMenu() {
