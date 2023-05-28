@@ -1,23 +1,32 @@
-#include <Month.h>
+#ifndef CALENDAR_H
+#define CALENDAR_H
+
+#include <string>
+#include <iostream>
+
+#include "Month.h"
 using namespace std;
 
 
 class Calendar
 {
 private:
-    Month* month;
+    Month* curMonth;
     int year;
 public:
     Calendar(int, string);
     ~Calendar();
+    void printCalendar() const;
 };
 
-Calendar::Calendar(int year, string month)
+Calendar::Calendar(int year, string monthName)
 {
-    month = new Month(month, year);
+    curMonth = new Month(year, monthName);
     this->year = year;
 }
 
 Calendar::~Calendar()
 {
 }
+
+#endif

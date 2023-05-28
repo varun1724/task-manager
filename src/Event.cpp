@@ -12,7 +12,7 @@ string Event::getDescription() const {
 }
 
 
-Time Event::getTime() const {
+Time* Event::getTime() const {
     return time;
 }
 
@@ -32,11 +32,11 @@ void Event::setDescription(string newDes) {
 }
 
 
-void Event::setTime(Time newTime) {
+void Event::setTime(Time* newTime) {
     time = newTime;
 }
 
 
-void Event::setLocation(string newloc) {
+void Event::setLocation(string newLoc) {
     location = newLoc;
 }

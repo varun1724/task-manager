@@ -1,3 +1,6 @@
+#ifndef DAY_H
+#define DAY_H
+
 #include "Event.h"
 #include <vector>
 
@@ -23,3 +26,5 @@ Day::Day()
 Day::~Day()
 {
 }
+
+#endif
