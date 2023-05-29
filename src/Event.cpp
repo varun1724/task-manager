@@ -1,6 +1,24 @@
 #include "../headers/Event.h"
 
+Event::Event() {
+    name = "";
+    description = "";
+    time = new Time(0, 0);
+    location = "";
+}
 
+
+Event::Event(string nm, string des, Time* curTime, string loc)
+{
+    name = nm;
+    description = des;
+    time = curTime;
+    location = loc;
+}
+
+Event::~Event()
+{
+}
 // Getters
 string Event::getName() const {
     return name;

@@ -18,13 +18,6 @@ public:
     void removeEvent(string);
 };
 
-Day::Day()
-{
-    
-}
 
-Day::~Day()
-{
-}
 
 #endif

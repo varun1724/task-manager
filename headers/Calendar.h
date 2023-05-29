@@ -14,19 +14,9 @@ private:
     Month* curMonth;
     int year;
 public:
-    Calendar(int, string);
+    Calendar(int year, string monthName);
     ~Calendar();
-    void printCalendar() const;
+    void printCalendar();
 };
-
-Calendar::Calendar(int year, string monthName)
-{
-    curMonth = new Month(year, monthName);
-    this->year = year;
-}
-
-Calendar::~Calendar()
-{
-}
 
 #endif
