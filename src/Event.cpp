@@ -1,5 +1,5 @@
 #include "../headers/Event.h"
-
+using namespace std;
 
 // Getters
 string Event::getName() const {

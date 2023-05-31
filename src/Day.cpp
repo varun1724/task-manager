@@ -1,4 +1,5 @@
 #include "../headers/Day.h"
+using namespace std;
 
 // Adds an event to the day
 void Day::addEvent(Event newEvent) {

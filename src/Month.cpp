@@ -1,4 +1,5 @@
 #include "../headers/Month.h"
+using namespace std;
 
 // Switches the current month to the next month and increases the year if necessary
 void Month::nextMonth() const {

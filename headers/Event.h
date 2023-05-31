@@ -1,7 +1,5 @@
 #include "../helper-structs/Time.hpp"
 
-using namespace std;
-
 // Modify to have this event
 class Event
 {
