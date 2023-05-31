@@ -12,3 +12,12 @@ void Day::removeEvent(string eventName) {
         // Still needs completing
     }
 }
+
+Day::Day()
+{
+    
+}
+
+Day::~Day()
+{
+}
