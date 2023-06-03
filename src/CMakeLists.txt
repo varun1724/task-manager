@@ -9,5 +9,6 @@ add_executable(taskscheduler
   Month.cpp
   Day.cpp
   Event.cpp
+  EventList.cpp
 )
 

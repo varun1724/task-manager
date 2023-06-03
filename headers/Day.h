@@ -16,6 +16,7 @@ public:
     ~Day();
     void addEvent(Event);
     void removeEvent(string);
+    int numEvents() const;
 };
 
 
