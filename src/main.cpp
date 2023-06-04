@@ -1,5 +1,11 @@
 #include <iostream>
+
+#include "../headers/Calendar.h"
+
 using namespace std;
+
+
+
 int showCreateTaskMenu() {
     while(true) {
         system("clear");
@@ -220,7 +226,11 @@ int showMainMenu() {
 }
 
 int main() {
-    int ret = showMainMenu();
+
+    Calendar cal = Calendar(2023, "May");
+    cal.printCalendar();
+
+    //int ret = showMainMenu();
     return 0;
 }
 

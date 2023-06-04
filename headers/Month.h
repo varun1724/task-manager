@@ -1,3 +1,6 @@
+#ifndef MONTH_H
+#define MONTH_H
+
 #include "Day.h"
 #include <string>
 
@@ -9,23 +12,16 @@ private:
     int year;
     Day *days;
 public:
-    Month(string, int);
+    Month(int, string);
     ~Month();
-    void nextMonth() const;
-    void prevMonth() const;
+    void nextMonth();
+    void prevMonth();
 private:
     int numDays() const;
     bool isLeapYear() const;
 };
 
-Month::Month(string name, int year)
-{
-    monthName = name;
-    this->year = year;
-    days = new Day[numDays()];
 
-}
 
-Month::~Month()
-{
-}
+
+#endif

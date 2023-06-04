@@ -1,6 +1,25 @@
 #include "../headers/Event.h"
 using namespace std;
 
+Event::Event() {
+    name = "";
+    description = "";
+    time = new Time(0, 0);
+    location = "";
+}
+
+
+Event::Event(string nm, string des, Time* curTime, string loc)
+{
+    name = nm;
+    description = des;
+    time = curTime;
+    location = loc;
+}
+
+Event::~Event()
+{
+}
 // Getters
 string Event::getName() const {
     return name;
@@ -12,7 +31,7 @@ string Event::getDescription() const {
 }
 
 
-Time Event::getTime() const {
+Time* Event::getTime() const {
     return time;
 }
 
@@ -32,11 +51,11 @@ void Event::setDescription(string newDes) {
 }
 
 
-void Event::setTime(Time newTime) {
+void Event::setTime(Time* newTime) {
     time = newTime;
 }
 
 
-void Event::setLocation(string newloc) {
+void Event::setLocation(string newLoc) {
     location = newLoc;
 }

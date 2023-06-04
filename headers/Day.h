@@ -1,3 +1,6 @@
+#ifndef DAY_H
+#define DAY_H
+
 #include "Event.h"
 #include <vector>
 
@@ -13,11 +16,6 @@ public:
     void removeEvent(string);
 };
 
-Day::Day()
-{
-    
-}
 
-Day::~Day()
-{
-}
+
+#endif

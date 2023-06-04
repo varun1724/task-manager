@@ -2,7 +2,7 @@
 using namespace std;
 
 // Switches the current month to the next month and increases the year if necessary
-void Month::nextMonth() const {
+void Month::nextMonth() {
 
     if (monthName == "January") {
         monthName = "February";
@@ -33,7 +33,7 @@ void Month::nextMonth() const {
 }
 
 // Switches the current month to the previous month and decreases the year if necessary
-void Month::nextMonth() const {
+void Month::prevMonth() {
 
     if (monthName == "January") {
         monthName = "December";
@@ -85,4 +85,16 @@ bool Month::isLeapYear() const {
     }
 
     return false;
+}
+
+Month::Month(int year, string name)
+{
+    monthName = name;
+    this->year = year;
+    days = new Day[10];
+
+}
+
+Month::~Month()
+{
 }
