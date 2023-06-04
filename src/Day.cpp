@@ -1,4 +1,5 @@
 #include "../headers/Day.h"
+using namespace std;
 
 Day::Day()
 {
