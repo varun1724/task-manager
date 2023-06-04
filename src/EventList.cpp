@@ -31,3 +31,11 @@ void EventList::displayList() const {
         cout << endl;
     }
 }
+
+EventList::EventList()
+{
+}
+
+EventList::~EventList()
+{
+}

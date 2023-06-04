@@ -1,3 +1,5 @@
+#ifndef EVENTLIST_H
+#define EVENTLIST_H
 #include <vector>
 using namespace std;
 
@@ -17,10 +19,5 @@ public:
     void displayList() const;
 };
 
-EventList::EventList()
-{
-}
+#endif
 
-EventList::~EventList()
-{
-}
