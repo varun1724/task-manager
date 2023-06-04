@@ -1,4 +1,5 @@
 #include "../headers/Event.h"
+using namespace std;
 
 Event::Event() {
     name = "";

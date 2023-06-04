@@ -4,8 +4,6 @@
 #include "../helper-structs/Time.hpp"
 #include <string>
 
-using namespace std;
-
 // Modify to have this event
 class Event
 {
