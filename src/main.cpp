@@ -47,11 +47,13 @@ int showCreateTaskMenu(EventList& events) {
             } else {
                 return 0;
             }
+        } else {
+            return 0;
         }
     }
     return 0;
 }
-int editTaskMenu() {
+int editTaskMenu(EventList &events) {
     system("clear");
     cout << "Edit Task Menu." << endl;
     cout << "2. Back" << endl;
@@ -59,7 +61,7 @@ int editTaskMenu() {
     cin >> input;
     return 0;
 }
-int deleteTaskMenu() {
+int deleteTaskMenu(EventList &events) {
     system("clear");
     cout << "Delete Task Menu." << endl;
     cout << "2. Back" << endl;
@@ -67,7 +69,7 @@ int deleteTaskMenu() {
     cin >> input;
     return 0;
 }
-int viewSchedule() {
+int viewSchedule(EventList &events) {
     system("clear");
     cout << "View Schedule." << endl;
     cout << "2. Back" << endl;
@@ -100,17 +102,17 @@ int showMainMenu() {
 
             case 2:
             //Edit task menu.
-            editTaskMenu();
+            editTaskMenu(events);
             break;
 
             case 3:
             //Show delete task menu.
-            deleteTaskMenu();
+            deleteTaskMenu(events);
             break;
 
             case 4:
             //View schedule.
-            viewSchedule();
+            viewSchedule(events);
             break;
 
             case 5:
