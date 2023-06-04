@@ -1,6 +1,12 @@
 #include "../headers/Day.h"
 using namespace std;
 
+Day::Day()
+{
+    
+}
+
+
 // Adds an event to the day
 void Day::addEvent(Event newEvent) {
     events.push_back(newEvent);
@@ -14,10 +20,10 @@ void Day::removeEvent(string eventName) {
     }
 }
 
-Day::Day()
-{
-    
+int Day::numEvents() const {
+    return events.size();
 }
+
 
 Day::~Day()
 {

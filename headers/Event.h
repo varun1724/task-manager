@@ -2,6 +2,7 @@
 #define EVENT_H
 
 #include "../helper-structs/Time.hpp"
+#include "../helper-structs/Date.hpp"
 #include <string>
 
 // Modify to have this event
@@ -10,7 +11,7 @@ class Event
 private:
    string name;
    string description;
-   // Need date (not yet sure where to put this right now)
+   Date* date;
    Time* time;
    string location;
 
@@ -20,18 +21,20 @@ private:
 
 public:
     Event();
-    Event(string, string, Time*, string);
+    Event(string, string, Date*, Time*, string);
     ~Event();
 
     // Getters
     string getName() const;
     string getDescription() const;
+    Date* getDate() const;
     Time* getTime() const;
     string getLocation();
 
     // Setters
     void setName(string);
     void setDescription(string);
+    void setDate(Date*);
     void setTime(Time*);
     void setLocation(string);
 

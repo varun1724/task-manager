@@ -4,21 +4,24 @@ using namespace std;
 Event::Event() {
     name = "";
     description = "";
+    date = new Date(0, 0, 1000);
     time = new Time(0, 0);
     location = "";
 }
 
 
-Event::Event(string nm, string des, Time* curTime, string loc)
+Event::Event(string nm, string des, Date* curDate, Time* curTime, string loc)
 {
     name = nm;
     description = des;
+    date = curDate;
     time = curTime;
     location = loc;
 }
 
 Event::~Event()
 {
+    // Deallocate time and date
 }
 // Getters
 string Event::getName() const {
@@ -28,6 +31,11 @@ string Event::getName() const {
 
 string Event::getDescription() const {
     return description;
+}
+
+
+Date* Event::getDate() const {
+    return date;
 }
 
 
@@ -48,6 +56,11 @@ void Event::setName(string newName) {
 
 void Event::setDescription(string newDes) {
     description = newDes;
+}
+
+
+void Event::setDate(Date* newDate) {
+    date = newDate;
 }
 
 
