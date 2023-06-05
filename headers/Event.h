@@ -38,6 +38,8 @@ public:
     void setTime(Time*);
     void setLocation(string);
 
+    void printEvent();
+
 };
 
 #endif

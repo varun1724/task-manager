@@ -1,6 +1,8 @@
 #ifndef EVENTLIST_H
 #define EVENTLIST_H
+
 #include <vector>
+
 using namespace std;
 
 #include "Event.h"
@@ -16,7 +18,11 @@ public:
     void addEvent(Event);
     void removeEvent(string);
 
+    bool findEvent(string) const;
+
     void displayList() const;
+    void displayNames() const;
+    void displayEvent(string);
 };
 
 #endif
