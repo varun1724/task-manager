@@ -1,3 +1,5 @@
+#ifndef TIME_H
+#define TIME_H
 #include <iostream>
 
 using namespace std;
@@ -22,3 +24,4 @@ struct Time {
         cout << hour << ":" << minutes;
     }
 };
+#endif

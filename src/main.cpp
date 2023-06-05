@@ -1,10 +1,10 @@
 #include <iostream>
 
 #include "../headers/Calendar.h"
+#include "../headers/Goal.h"
+#include "../headers/GoalList.h"
 
 using namespace std;
-
-
 
 int showCreateTaskMenu(EventList& events) {
     while(true) {
@@ -102,16 +102,18 @@ int deleteTaskMenu(EventList &events) {
     }
     return 0;
 }
-int viewSchedule(EventList &events) {
+
+int viewSchedule(GoalList& goals, EventList &events) {
     system("clear");
     cout << "View Schedule." << endl;
+    goals.print();
     cout << "2. Back" << endl;
     int input;
     cin >> input;
     return 0;
 }
 
-int createGoal() {
+int createGoal(GoalList& goals) {
     system("clear");
     cout << "Create Goal Menu." << endl;
     string name;
@@ -131,11 +133,14 @@ int createGoal() {
     cin >> input;
     if(1 == input) {
         //save the goal.
+        Date *dt = new Date(date);
+        Goal *goal = new Goal(name, des, dt);
+        goals.addGoal(*goal);
     }
     return 0;
 }
 
-int editGoal() {
+int editGoal(GoalList& goals) {
     system("clear");
     cout << "Edit Goal Menu." << endl;
     //Show the goal list.
@@ -164,7 +169,7 @@ int editGoal() {
     return 0;
 }
 
-int deleteGoal() {
+int deleteGoal(GoalList& goals) {
     system("clear");
     cout << "Delete Goal Menu." << endl;
     //Show the goal list
@@ -176,15 +181,15 @@ int deleteGoal() {
     int input;
     cin >> input;
     if(1 == input) {
-        
+        goals.removeGoal(id);
     }
-   
     return 0;
 }
 
 int showMainMenu() {
 
-    EventList events = EventList();
+    EventList events;
+    GoalList goals;
 
     while(true) {
         system("clear");
@@ -203,35 +208,35 @@ int showMainMenu() {
         cin >> input;
         switch (input){
             case 1:
-            //Show create task menu.
-            showCreateTaskMenu(events);
+                //Show create task menu.
+                showCreateTaskMenu(events);
             break;
 
             case 2:
-            //Edit task menu.
-            editTaskMenu(events);
+                //Edit task menu.
+                editTaskMenu(events);
             break;
 
             case 3:
-            //Show delete task menu.
-            deleteTaskMenu(events);
+                //Show delete task menu.
+                deleteTaskMenu(events);
             break;
 
             case 4:
-            //View schedule.
-            viewSchedule(events);
+                //View schedule.
+                viewSchedule(goals, events);
             break;
 
             case 5:
-                createGoal();
+                createGoal(goals);
             break;
 
             case 6:
-                editGoal();
+                editGoal(goals);
             break;
             
             case 7:
-                deleteGoal();
+                deleteGoal(goals);
             break;
             
             case 8:
@@ -246,11 +251,8 @@ int showMainMenu() {
 }
 
 int main() {
-
-    // Calendar cal = Calendar(2023, "May");
-    // cal.printCalendar();
-
     int ret = showMainMenu();
+    cout << "Exiting " << endl;
     return 0;
 }
 
