@@ -14,8 +14,7 @@ public:
     ~EventList();
 
     void addEvent(Event);
-    void removeEvent(string);
-
+    void removeEvent(int id);
     void displayList() const;
 };
 

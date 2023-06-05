@@ -10,5 +10,7 @@ add_executable(taskscheduler
   Day.cpp
   Event.cpp
   EventList.cpp
+  Goal.cpp
+  GoalList.cpp
 )
 

@@ -1,4 +1,9 @@
+
+#ifndef DATE_H
+#define DATE_H
 #include <iostream>
+#include <sstream>
+#include <chrono>
 
 using namespace std;
 
@@ -10,8 +15,8 @@ struct Date
 
     Date(int newMonth, int newDay, int newYear) : month(newMonth), day(newDay), year(newYear) {}
 
-    Date(string date) {
-        
+    Date(string date) { 
+        /**     
         string monStr = date.substr(0, 2);
         string dayStr = date.substr(3, 2);
         string yrStr = date.substr(6, 4);
@@ -19,11 +24,19 @@ struct Date
         month = stoi(monStr);
         day = stoi(dayStr);
         year = stoi(yrStr);
-
+        */
+       std::istringstream iss(date);
+       std::string s;
+       std::getline(iss, s, '/'); 
+       month = stoi(s);
+       std::getline(iss, s, '/'); 
+       day = stoi(s);
+       std::getline(iss, s, '/'); 
+       year = stoi(s);
     }
 
     void printDate() const {
-        cout << month << "/" << day << "/" << year;
+        cout << to_string(month) << "/" <<to_string(day) << "/" << to_string(year);
     }
-
 };
+#endif
