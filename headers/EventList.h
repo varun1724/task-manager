@@ -17,9 +17,8 @@ public:
 
     void addEvent(Event);
     void removeEvent(string);
-
     bool findEvent(string) const;
-
+    void removeEvent(int id);
     void displayList() const;
     void displayNames() const;
     void displayEvent(string);

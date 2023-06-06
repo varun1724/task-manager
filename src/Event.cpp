@@ -23,7 +23,7 @@ Event::Event(string nm, string des, Date* curDate, Time* curTime, string loc)
 
 Event::~Event()
 {
-    // Deallocate time and date
+    
 }
 // Getters
 string Event::getName() const {

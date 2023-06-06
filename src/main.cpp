@@ -2,6 +2,8 @@
 
 #include "../headers/Calendar.h"
 #include "../headers/Event.h"
+#include "../headers/Goal.h"
+#include "../headers/GoalList.h"
 #include <vector>
 
 using namespace std;
@@ -212,17 +214,17 @@ int showTasks(vector<Event*> &events) {
 
 
 
-
-int viewSchedule(vector<Event*> &events) {
+int viewSchedule(GoalList& goals, vector<Event*> &events) {
     system("clear");
     cout << "View Schedule." << endl;
+    goals.print();
     cout << "2. Back" << endl;
     int input;
     cin >> input;
     return 0;
 }
 
-int createGoal() {
+int createGoal(GoalList& goals) {
     system("clear");
     cout << "Create Goal Menu." << endl;
     string name;
@@ -242,11 +244,14 @@ int createGoal() {
     cin >> input;
     if(1 == input) {
         //save the goal.
+        Date *dt = new Date(date);
+        Goal *goal = new Goal(name, des, dt);
+        goals.addGoal(*goal);
     }
     return 0;
 }
 
-int editGoal() {
+int editGoal(GoalList& goals) {
     system("clear");
     cout << "Edit Goal Menu." << endl;
     //Show the goal list.
@@ -275,7 +280,7 @@ int editGoal() {
     return 0;
 }
 
-int deleteGoal() {
+int deleteGoal(GoalList& goals) {
     system("clear");
     cout << "Delete Goal Menu." << endl;
     //Show the goal list
@@ -287,15 +292,15 @@ int deleteGoal() {
     int input;
     cin >> input;
     if(1 == input) {
-        
+        goals.removeGoal(id);
     }
-   
     return 0;
 }
 
 int showMainMenu() {
 
     vector<Event*> events;
+    GoalList goals;
 
     while(true) {
         system("clear");
@@ -335,19 +340,19 @@ int showMainMenu() {
 
             case 5:
                 //View schedule.
-                viewSchedule(events);
+                viewSchedule(goals, events);
             break;
 
             case 6:
-                createGoal();
+                createGoal(goals);
             break;
 
             case 7:
-                editGoal();
+                editGoal(goals);
             break;
             
             case 8:
-                deleteGoal();
+                deleteGoal(goals);
             break;
             
             case 9:
@@ -362,11 +367,8 @@ int showMainMenu() {
 }
 
 int main() {
-
-    // Calendar cal = Calendar(2023, "May");
-    // cal.printCalendar();
-
     int ret = showMainMenu();
+    cout << "Exiting " << endl;
     return 0;
 }
 

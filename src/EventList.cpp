@@ -15,7 +15,7 @@ void EventList::addEvent(Event newEvent) {
     events.push_back(newEvent);
 }
 
-void EventList::removeEvent(string name) {
+void EventList::removeEvent(int id) {
 
 }
 
