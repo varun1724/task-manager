@@ -226,6 +226,54 @@ EventList.cpp.s:
 	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/taskscheduler.dir/build.make src/CMakeFiles/taskscheduler.dir/EventList.cpp.s
 .PHONY : EventList.cpp.s
 
+Goal.o: Goal.cpp.o
+.PHONY : Goal.o
+
+# target to build an object file
+Goal.cpp.o:
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/taskscheduler.dir/build.make src/CMakeFiles/taskscheduler.dir/Goal.cpp.o
+.PHONY : Goal.cpp.o
+
+Goal.i: Goal.cpp.i
+.PHONY : Goal.i
+
+# target to preprocess a source file
+Goal.cpp.i:
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/taskscheduler.dir/build.make src/CMakeFiles/taskscheduler.dir/Goal.cpp.i
+.PHONY : Goal.cpp.i
+
+Goal.s: Goal.cpp.s
+.PHONY : Goal.s
+
+# target to generate assembly for a file
+Goal.cpp.s:
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/taskscheduler.dir/build.make src/CMakeFiles/taskscheduler.dir/Goal.cpp.s
+.PHONY : Goal.cpp.s
+
+GoalList.o: GoalList.cpp.o
+.PHONY : GoalList.o
+
+# target to build an object file
+GoalList.cpp.o:
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/taskscheduler.dir/build.make src/CMakeFiles/taskscheduler.dir/GoalList.cpp.o
+.PHONY : GoalList.cpp.o
+
+GoalList.i: GoalList.cpp.i
+.PHONY : GoalList.i
+
+# target to preprocess a source file
+GoalList.cpp.i:
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/taskscheduler.dir/build.make src/CMakeFiles/taskscheduler.dir/GoalList.cpp.i
+.PHONY : GoalList.cpp.i
+
+GoalList.s: GoalList.cpp.s
+.PHONY : GoalList.s
+
+# target to generate assembly for a file
+GoalList.cpp.s:
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/taskscheduler.dir/build.make src/CMakeFiles/taskscheduler.dir/GoalList.cpp.s
+.PHONY : GoalList.cpp.s
+
 Month.o: Month.cpp.o
 .PHONY : Month.o
 
@@ -295,6 +343,12 @@ help:
 	@echo "... EventList.o"
 	@echo "... EventList.i"
 	@echo "... EventList.s"
+	@echo "... Goal.o"
+	@echo "... Goal.i"
+	@echo "... Goal.s"
+	@echo "... GoalList.o"
+	@echo "... GoalList.i"
+	@echo "... GoalList.s"
 	@echo "... Month.o"
 	@echo "... Month.i"
 	@echo "... Month.s"

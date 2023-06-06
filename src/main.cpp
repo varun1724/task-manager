@@ -64,15 +64,11 @@ int showCreateTaskMenu(vector<Event*> & events) {
 
 
 // Allows a user to edit specific tasks
-// TODO - ADD FUNCTIONALITY
 int editTaskMenu(vector<Event*> &events) {
     system("clear");
     cout << "Edit Task Menu." << endl;
     cin.clear();
     cin.ignore();
-    int goalId;
-    //cout << "Enter the Id of goal to which the task belongs:" << endl;
-    //cin >> goalId;
 
     cout << endl;
     cout << "Current Tasks:" << endl;
@@ -84,12 +80,12 @@ int editTaskMenu(vector<Event*> &events) {
     Event* selectedEvent;
     bool foundName = false;
     while (!foundName) {
-        cin >> taskName;
+        getline(cin, taskName);
         foundName = eventIsInList(events, taskName);
         if (foundName) {
             selectedEvent = findEvent(events, taskName);
+            break;
         }
-        break;
 
         cout << "Invalid task name, please try again: " << endl;
     }
@@ -97,7 +93,6 @@ int editTaskMenu(vector<Event*> &events) {
     cout << endl;
     cout << "Task Information:" << endl;
     selectedEvent->printEvent();
-    cout << endl;
 
     while (true) {
 
@@ -127,11 +122,13 @@ int editTaskMenu(vector<Event*> &events) {
             string date;
             cout << "Enter new date in the format mm/dd/yyyy:" << endl;
             getline(cin, date);
+            delete selectedEvent->getDate();
             selectedEvent->setDate(new Date(date));
         } else if (input == 4) {
             string time;
             cout << "Enter new time in format hh:mm:" << endl;
             getline(cin, time);
+            delete selectedEvent->getTime();
             selectedEvent->setTime(new Time(time));
         } else if (input == 5) {
             string location;
@@ -163,18 +160,46 @@ int deleteTaskMenu(vector<Event*> &events) {
     system("clear");
     cin.clear();
     cin.ignore();
-    int goalId;
-    int taskId;
     cout << "Delete Task Menu." << endl;
-    cout << "Enter the Id of goal to which the task belongs:" << endl;
-    cin >> goalId;
-    cout << "Enter the Id of task:" << endl;
-    cin >> taskId;
+
+    cout << "Current tasks: " << endl;
+    displayNames(events);
+    cout << endl;
+
+    cout << "Enter the name of the task you would like to delete:" << endl;
+
+    string taskName;
+    bool foundName = false;
+    Event* selectedEvent;
+
+    while (true) {
+        getline(cin, taskName);
+
+        for (unsigned i = 0; i < events.size(); ++i) {
+            if (events.at(i)->getName() == taskName) {
+                foundName = true;
+                selectedEvent = events.at(i);
+                events.erase(events.begin()+i);
+                break;
+            }
+        }
+
+        if (foundName) {
+            break; 
+        }
+
+        cout << "Invalid task name, please try again: " << endl;
+    }
+
     cout << "1. Confirm delete" << endl;
     cout << "2. Cancel" << endl;
     int input;
     cin >> input;
     if(1 == input) {
+        delete selectedEvent->getDate();
+        delete selectedEvent->getTime();
+        delete selectedEvent;
+
         cout << "Deleted" << endl;
     }
     return 0;
@@ -365,6 +390,7 @@ int showMainMenu() {
     }
     return 0;
 }
+
 
 int main() {
     int ret = showMainMenu();
