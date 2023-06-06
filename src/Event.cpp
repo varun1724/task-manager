@@ -1,4 +1,6 @@
 #include "../headers/Event.h"
+#include <iostream>
+
 using namespace std;
 
 Event::Event() {
@@ -71,4 +73,16 @@ void Event::setTime(Time* newTime) {
 
 void Event::setLocation(string newLoc) {
     location = newLoc;
+}
+
+
+void Event::printEvent() {
+
+    cout << "Name: " << name << ", "; 
+    date->printDate();
+    cout << " "; 
+    time->printTime();
+    cout << " at " << location << endl;
+
+    cout << "Description: " << description << endl;
 }

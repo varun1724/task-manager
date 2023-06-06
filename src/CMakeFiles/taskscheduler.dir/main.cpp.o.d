@@ -121,4 +121,5 @@ src/CMakeFiles/taskscheduler.dir/main.cpp.o: \
  /usr/include/c++/8/bits/stl_uninitialized.h \
  /usr/include/c++/8/bits/stl_vector.h \
  /usr/include/c++/8/bits/stl_bvector.h /usr/include/c++/8/bits/vector.tcc \
- /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/../headers/EventList.h
+ /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/../headers/EventList.h \
+ /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/../headers/Event.h

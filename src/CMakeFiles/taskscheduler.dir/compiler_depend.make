@@ -705,7 +705,9 @@ src/CMakeFiles/taskscheduler.dir/EventList.cpp.o: src/EventList.cpp \
   /usr/include/c++/8/bits/ostream.tcc \
   /usr/include/c++/8/istream \
   /usr/include/c++/8/bits/istream.tcc \
-  helper-structs/Date.hpp
+  helper-structs/Date.hpp \
+  /usr/include/string.h \
+  /usr/include/strings.h
 
 src/CMakeFiles/taskscheduler.dir/Month.cpp.o: src/Month.cpp \
   /usr/include/stdc-predef.h \
@@ -1063,7 +1065,8 @@ src/CMakeFiles/taskscheduler.dir/main.cpp.o: src/main.cpp \
   /usr/include/c++/8/bits/stl_vector.h \
   /usr/include/c++/8/bits/stl_bvector.h \
   /usr/include/c++/8/bits/vector.tcc \
-  headers/EventList.h
+  headers/EventList.h \
+  headers/Event.h
 
 
 src/main.cpp:

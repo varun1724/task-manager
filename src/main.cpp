@@ -1,12 +1,20 @@
 #include <iostream>
 
 #include "../headers/Calendar.h"
+#include "../headers/Event.h"
 #include "../headers/Goal.h"
 #include "../headers/GoalList.h"
+#include <vector>
 
 using namespace std;
 
-int showCreateTaskMenu(EventList& events) {
+// Event vector helper functions
+bool eventIsInList(vector<Event*>&, string);
+void displayNames(vector<Event*>&);
+Event* findEvent(vector<Event*>&, string);
+
+// Allows the user to add a task to their calendar
+int showCreateTaskMenu(vector<Event*> & events) {
     while(true) {
         system("clear");
         cout << "Create Task Menu." << endl;
@@ -43,7 +51,7 @@ int showCreateTaskMenu(EventList& events) {
             cin >> input;
 
             if (input == 1) {
-                events.addEvent(Event(name, desc, new Date(date), new Time(time), location));
+                events.push_back(new Event(name, desc, new Date(date), new Time(time), location));
             } else {
                 return 0;
             }
@@ -53,36 +61,105 @@ int showCreateTaskMenu(EventList& events) {
     }
     return 0;
 }
-int editTaskMenu(EventList &events) {
+
+
+// Allows a user to edit specific tasks
+// TODO - ADD FUNCTIONALITY
+int editTaskMenu(vector<Event*> &events) {
     system("clear");
     cout << "Edit Task Menu." << endl;
     cin.clear();
     cin.ignore();
     int goalId;
-    int taskId;
-    cout << "Enter the Id of goal to which the task belongs:" << endl;
-    cin >> goalId;
-    cout << "Enter the Id of task:" << endl;
-    cin >> taskId;
-    string name;
-    string desc;
-    string date;
-    string time;
-    cout << "Enter Event or Task Name:" << endl;
-    cin >> name;
-    cout << "Enter Description:" << endl;
-    cin >> desc;
-    cout << "Enter Date:" << endl;
-    cin >> date;
-    cout << "Enter Time:" << endl;
-    cin >> time;
-    cout << "1. Save" << endl;
-    cout << "2. Cancel" << endl;
-    int input;
-    cin >> input;
+    //cout << "Enter the Id of goal to which the task belongs:" << endl;
+    //cin >> goalId;
+
+    cout << endl;
+    cout << "Current Tasks:" << endl;
+    displayNames(events);
+    cout << endl;
+
+    cout << "Enter the name of the task you would like to edit:" << endl;
+    string taskName;
+    Event* selectedEvent;
+    bool foundName = false;
+    while (!foundName) {
+        cin >> taskName;
+        foundName = eventIsInList(events, taskName);
+        if (foundName) {
+            selectedEvent = findEvent(events, taskName);
+        }
+        break;
+
+        cout << "Invalid task name, please try again: " << endl;
+    }
+
+    cout << endl;
+    cout << "Task Information:" << endl;
+    selectedEvent->printEvent();
+    cout << endl;
+
+    while (true) {
+
+        cout << endl;
+        cout << "What would you like to change?" << endl;
+        cout << "1. Name" << endl;
+        cout << "2. Description" << endl;
+        cout << "3. Date" << endl;
+        cout << "4. Time" << endl;
+        cout << "5. Location" << endl;
+        cout << "Press any other number to save and exit back to main menu" << endl;
+
+        int input;
+        cin >> input;
+        cin.ignore();
+        if (input == 1) {
+            string name;
+            cout << "Enter new name:" << endl;
+            getline(cin, name);
+            selectedEvent->setName(name);
+        } else if (input == 2) {
+            string desc;
+            cout << "Enter new description:" << endl;
+            getline(cin, desc);
+            selectedEvent->setDescription(desc);
+        } else if (input == 3) {
+            string date;
+            cout << "Enter new date in the format mm/dd/yyyy:" << endl;
+            getline(cin, date);
+            selectedEvent->setDate(new Date(date));
+        } else if (input == 4) {
+            string time;
+            cout << "Enter new time in format hh:mm:" << endl;
+            getline(cin, time);
+            selectedEvent->setTime(new Time(time));
+        } else if (input == 5) {
+            string location;
+            cout << "Enter new location" << endl;
+            getline(cin, location);
+            selectedEvent->setLocation(location);
+        } else {
+            return 0;
+        }
+        
+        cout << endl;
+        cout << "Would you like to change anything else?" << endl;
+        cout << "1. Yes" << endl;
+        cout << "2. No" << endl;
+
+        cin >> input;
+        if (input == 2) {
+            return 0;
+        }
+
+    }
+
     return 0;
 }
-int deleteTaskMenu(EventList &events) {
+
+// Deletes a task from the list
+// TODO - ADD THE DELETE FUNCTIONALITY
+int deleteTaskMenu(vector<Event*> &events) {
     system("clear");
     cin.clear();
     cin.ignore();
@@ -103,7 +180,41 @@ int deleteTaskMenu(EventList &events) {
     return 0;
 }
 
-int viewSchedule(GoalList& goals, EventList &events) {
+
+// Displays all the tasks the user has 
+// TODO - MAKE THE LIST PRINT IN CHRONOLOGICAL ORDER 
+int showTasks(vector<Event*> &events) {
+    system("clear");
+
+    cout << "Press any number to return to main menu" << endl;
+    
+    if (events.size() == 0) {
+        cout << "You have no upcoming events" << endl;
+    } else {
+        for (unsigned i = 0; i < events.size(); ++i) {
+            Event* curEvent = events.at(i);
+
+            cout << endl;
+
+            cout << "Event #" << i+1 << ": " << curEvent->getName() << ", "; 
+            curEvent->getDate()->printDate();
+            cout << " "; 
+            curEvent->getTime()->printTime();
+            cout << " at " << curEvent->getLocation() << endl;
+
+            cout << "Description: " << curEvent->getDescription() << endl;
+        }
+    }
+
+    int input;
+    cin >> input;
+
+    return 0;
+}
+
+
+
+int viewSchedule(GoalList& goals, vector<Event*> &events) {
     system("clear");
     cout << "View Schedule." << endl;
     goals.print();
@@ -188,7 +299,7 @@ int deleteGoal(GoalList& goals) {
 
 int showMainMenu() {
 
-    EventList events;
+    vector<Event*> events;
     GoalList goals;
 
     while(true) {
@@ -198,11 +309,12 @@ int showMainMenu() {
         cout <<"1. Create Task"<<endl;
         cout <<"2. Edit Task"<<endl;
         cout <<"3. Delete Task"<<endl;
-        cout <<"4. View Schedule"<<endl;
-        cout <<"5. Create Goal"<<endl;
-        cout <<"6. Edit Goal"<<endl;
-        cout <<"7. Delete Goal"<<endl;
-        cout <<"8. Exit"<<endl;
+        cout <<"4. View All Tasks"<<endl;
+        cout <<"5. View Schedule"<<endl;
+        cout <<"6. Create Goal"<<endl;
+        cout <<"7. Edit Goal"<<endl;
+        cout <<"8. Delete Goal"<<endl;
+        cout <<"9. Exit"<<endl;
         
         int input;
         cin >> input;
@@ -223,23 +335,27 @@ int showMainMenu() {
             break;
 
             case 4:
+                showTasks(events);
+            break;
+
+            case 5:
                 //View schedule.
                 viewSchedule(goals, events);
             break;
 
-            case 5:
+            case 6:
                 createGoal(goals);
             break;
 
-            case 6:
+            case 7:
                 editGoal(goals);
             break;
             
-            case 7:
+            case 8:
                 deleteGoal(goals);
             break;
             
-            case 8:
+            case 9:
 
             return 0;
 
@@ -257,4 +373,51 @@ int main() {
 }
 
 
+
+
+/////////////////////////////
+// Vector functions
+/////////////////////////////
+
+
+// Searches for a specific event by name
+// If found, return true, false if not
+bool eventIsInList(vector<Event*>& events, string name) {
+
+     for (unsigned i = 0; i < events.size(); ++i) {
+        if (name == events.at(i)->getName()) {
+            return true;
+            break;
+        }
+    }
+    return false;
+}
+
+Event* findEvent(vector<Event*>& events, string name) {
+
+    for (unsigned i = 0; i < events.size(); ++i) {
+        if (name == events.at(i)->getName()) {
+            return events.at(i);
+            break;
+        }
+    }
+
+    // May want to change this case here
+    return new Event();
+
+}
+
+
+// Displays the names of all events
+void displayNames(vector<Event*> & events) {
+
+    if (events.size() == 0) {
+        cout << "You have no upcoming events" << endl;
+        return;
+    }
+
+    for (unsigned i = 0; i < events.size(); ++i) {
+        cout << "Event #" << i+1 << ": " << events.at(i)->getName() << endl;
+    }
+}
 
