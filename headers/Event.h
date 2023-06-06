@@ -9,15 +9,15 @@
 class Event
 {
 private:
-   string name;
-   string description;
-   Date* date;
-   Time* time;
-   string location;
+    string name;
+    string description;
+    Date* date;
+    Time* time;
+    string location;
 
-   // A task is the same thing as an event but the only difference is that is shows up in the list
-   // under a goal. How do we want to code this?
-   bool isTask; 
+    // A task is the same thing as an event but the only difference is that is shows up in the list
+    // under a goal. How do we want to code this?
+    bool isTask; 
 
 public:
     Event();

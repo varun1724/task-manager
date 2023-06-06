@@ -153,6 +153,34 @@ src/CMakeFiles/taskscheduler.dir/EventList.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taskscheduler.dir/EventList.cpp.s"
 	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/EventList.cpp -o CMakeFiles/taskscheduler.dir/EventList.cpp.s
 
+src/CMakeFiles/taskscheduler.dir/Goal.cpp.o: src/CMakeFiles/taskscheduler.dir/flags.make
+src/CMakeFiles/taskscheduler.dir/Goal.cpp.o: src/Goal.cpp
+src/CMakeFiles/taskscheduler.dir/Goal.cpp.o: src/CMakeFiles/taskscheduler.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/csmajs/vsara008/final-project-pthak008-jchan517-2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/taskscheduler.dir/Goal.cpp.o"
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/taskscheduler.dir/Goal.cpp.o -MF CMakeFiles/taskscheduler.dir/Goal.cpp.o.d -o CMakeFiles/taskscheduler.dir/Goal.cpp.o -c /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/Goal.cpp
+
+src/CMakeFiles/taskscheduler.dir/Goal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/taskscheduler.dir/Goal.cpp.i"
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/Goal.cpp > CMakeFiles/taskscheduler.dir/Goal.cpp.i
+
+src/CMakeFiles/taskscheduler.dir/Goal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taskscheduler.dir/Goal.cpp.s"
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/Goal.cpp -o CMakeFiles/taskscheduler.dir/Goal.cpp.s
+
+src/CMakeFiles/taskscheduler.dir/GoalList.cpp.o: src/CMakeFiles/taskscheduler.dir/flags.make
+src/CMakeFiles/taskscheduler.dir/GoalList.cpp.o: src/GoalList.cpp
+src/CMakeFiles/taskscheduler.dir/GoalList.cpp.o: src/CMakeFiles/taskscheduler.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/csmajs/vsara008/final-project-pthak008-jchan517-2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/taskscheduler.dir/GoalList.cpp.o"
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/taskscheduler.dir/GoalList.cpp.o -MF CMakeFiles/taskscheduler.dir/GoalList.cpp.o.d -o CMakeFiles/taskscheduler.dir/GoalList.cpp.o -c /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/GoalList.cpp
+
+src/CMakeFiles/taskscheduler.dir/GoalList.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/taskscheduler.dir/GoalList.cpp.i"
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/GoalList.cpp > CMakeFiles/taskscheduler.dir/GoalList.cpp.i
+
+src/CMakeFiles/taskscheduler.dir/GoalList.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taskscheduler.dir/GoalList.cpp.s"
+	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/GoalList.cpp -o CMakeFiles/taskscheduler.dir/GoalList.cpp.s
+
 # Object files for target taskscheduler
 taskscheduler_OBJECTS = \
 "CMakeFiles/taskscheduler.dir/main.cpp.o" \
@@ -160,7 +188,9 @@ taskscheduler_OBJECTS = \
 "CMakeFiles/taskscheduler.dir/Month.cpp.o" \
 "CMakeFiles/taskscheduler.dir/Day.cpp.o" \
 "CMakeFiles/taskscheduler.dir/Event.cpp.o" \
-"CMakeFiles/taskscheduler.dir/EventList.cpp.o"
+"CMakeFiles/taskscheduler.dir/EventList.cpp.o" \
+"CMakeFiles/taskscheduler.dir/Goal.cpp.o" \
+"CMakeFiles/taskscheduler.dir/GoalList.cpp.o"
 
 # External object files for target taskscheduler
 taskscheduler_EXTERNAL_OBJECTS =
@@ -171,9 +201,11 @@ bin/taskscheduler: src/CMakeFiles/taskscheduler.dir/Month.cpp.o
 bin/taskscheduler: src/CMakeFiles/taskscheduler.dir/Day.cpp.o
 bin/taskscheduler: src/CMakeFiles/taskscheduler.dir/Event.cpp.o
 bin/taskscheduler: src/CMakeFiles/taskscheduler.dir/EventList.cpp.o
+bin/taskscheduler: src/CMakeFiles/taskscheduler.dir/Goal.cpp.o
+bin/taskscheduler: src/CMakeFiles/taskscheduler.dir/GoalList.cpp.o
 bin/taskscheduler: src/CMakeFiles/taskscheduler.dir/build.make
 bin/taskscheduler: src/CMakeFiles/taskscheduler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/csmajs/vsara008/final-project-pthak008-jchan517-2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ../bin/taskscheduler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/csmajs/vsara008/final-project-pthak008-jchan517-2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ../bin/taskscheduler"
 	cd /home/csmajs/vsara008/final-project-pthak008-jchan517-2/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/taskscheduler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

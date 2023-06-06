@@ -12,6 +12,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/Day.cpp" "src/CMakeFiles/taskscheduler.dir/Day.cpp.o" "gcc" "src/CMakeFiles/taskscheduler.dir/Day.cpp.o.d"
   "/home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/Event.cpp" "src/CMakeFiles/taskscheduler.dir/Event.cpp.o" "gcc" "src/CMakeFiles/taskscheduler.dir/Event.cpp.o.d"
   "/home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/EventList.cpp" "src/CMakeFiles/taskscheduler.dir/EventList.cpp.o" "gcc" "src/CMakeFiles/taskscheduler.dir/EventList.cpp.o.d"
+  "/home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/Goal.cpp" "src/CMakeFiles/taskscheduler.dir/Goal.cpp.o" "gcc" "src/CMakeFiles/taskscheduler.dir/Goal.cpp.o.d"
+  "/home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/GoalList.cpp" "src/CMakeFiles/taskscheduler.dir/GoalList.cpp.o" "gcc" "src/CMakeFiles/taskscheduler.dir/GoalList.cpp.o.d"
   "/home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/Month.cpp" "src/CMakeFiles/taskscheduler.dir/Month.cpp.o" "gcc" "src/CMakeFiles/taskscheduler.dir/Month.cpp.o.d"
   "/home/csmajs/vsara008/final-project-pthak008-jchan517-2/src/main.cpp" "src/CMakeFiles/taskscheduler.dir/main.cpp.o" "gcc" "src/CMakeFiles/taskscheduler.dir/main.cpp.o.d"
   )
