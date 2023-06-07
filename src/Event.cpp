@@ -65,11 +65,19 @@ void Event::setDate(Date* newDate) {
     date = newDate;
 }
 
+void Event::setDate(string dt) {
+    delete date;
+    date = new Date(dt);
+}
 
 void Event::setTime(Time* newTime) {
     time = newTime;
 }
 
+void Event::setTime(string t) {
+    delete time;
+    time = new Time(t);
+}
 
 void Event::setLocation(string newLoc) {
     location = newLoc;

@@ -16,7 +16,7 @@ void EventList::addEvent(Event newEvent) {
 }
 
 void EventList::removeEvent(int id) {
-
+    events.erase(events.begin()+id);
 }
 
 
@@ -37,7 +37,7 @@ bool EventList::findEvent(string name) const {
 void EventList::displayList() const {
 
     if (events.size() == 0) {
-        cout << "You have no upcoming events" << endl;
+        cout << "You have no upcoming tasks" << endl;
         return;
     }
 
@@ -46,7 +46,7 @@ void EventList::displayList() const {
 
         cout << endl;
 
-        cout << "Event #" << i+1 << ": " << curEvent.getName() << ", "; 
+        cout << "Task #" << i+1 << ": " << curEvent.getName() << ", "; 
         curEvent.getDate()->printDate();
         cout << " "; 
         curEvent.getTime()->printTime();
@@ -66,7 +66,7 @@ void EventList::displayNames() const {
     }
 
     for (unsigned i = 0; i < events.size(); ++i) {
-        cout << "Event #" << i+1 << ": " << events.at(i).getName() << endl;
+        cout << "Task #" << i+1 << ": " << events.at(i).getName() << endl;
     }
 }
 
@@ -77,4 +77,8 @@ void EventList::displayEvent(string name) {
             events.at(i).printEvent();
         }
     }
+}
+
+Event& EventList::getEvent(int id) {
+    return events[id];
 }

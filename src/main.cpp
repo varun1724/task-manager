@@ -14,7 +14,7 @@ void displayNames(vector<Event*>&);
 Event* findEvent(vector<Event*>&, string);
 
 // Allows the user to add a task to their calendar
-int showCreateTaskMenu(vector<Event*> & events) {
+int showCreateTaskMenu(GoalList& goals, vector<Event*> & events) {
     while(true) {
         system("clear");
         cout << "Create Task Menu." << endl;
@@ -45,13 +45,18 @@ int showCreateTaskMenu(vector<Event*> & events) {
             cout << "Enter location:" << endl;
             getline(cin, location);
 
+            cout << "Enter Id of goal:" << endl;
+            int id;
+            cin >> id;
+
             cout << "1. Save" << endl;
             cout << "2. Cancel" << endl;
 
             cin >> input;
 
             if (input == 1) {
-                events.push_back(new Event(name, desc, new Date(date), new Time(time), location));
+                Event* event = new Event(name, desc, new Date(date), new Time(time), location);
+                goals.addEvent(id, *event);
             } else {
                 return 0;
             }
@@ -64,38 +69,20 @@ int showCreateTaskMenu(vector<Event*> & events) {
 
 
 // Allows a user to edit specific tasks
-int editTaskMenu(vector<Event*> &events) {
+int editTaskMenu(GoalList& goals, vector<Event*> &events) {
     system("clear");
     cout << "Edit Task Menu." << endl;
     cin.clear();
     cin.ignore();
-
-    cout << endl;
-    cout << "Current Tasks:" << endl;
-    displayNames(events);
-    cout << endl;
-
-    cout << "Enter the name of the task you would like to edit:" << endl;
-    string taskName;
-    Event* selectedEvent;
-    bool foundName = false;
-    while (!foundName) {
-        getline(cin, taskName);
-        foundName = eventIsInList(events, taskName);
-        if (foundName) {
-            selectedEvent = findEvent(events, taskName);
-            break;
-        }
-
-        cout << "Invalid task name, please try again: " << endl;
-    }
-
-    cout << endl;
-    cout << "Task Information:" << endl;
-    selectedEvent->printEvent();
-
-    while (true) {
-
+    cout << "Current goals:" << endl;
+    goals.print();
+    int idGoal;
+    int idTask;
+    cout << "Enter the Id of goal:" << endl;
+    cin >> idGoal;
+    cout << "Enter the Id of Task to be edited:" << endl;
+    cin >> idTask;
+    while(true) {
         cout << endl;
         cout << "What would you like to change?" << endl;
         cout << "1. Name" << endl;
@@ -105,50 +92,67 @@ int editTaskMenu(vector<Event*> &events) {
         cout << "5. Location" << endl;
         cout << "Press any other number to save and exit back to main menu" << endl;
 
+        int option;
+        cin >> option;
+        cin.ignore();
+        string name;
+        string desc;
+        string date;
+        string time;
+        string location;
+        switch(option) {
+            case 1:
+                cout << "Enter new name:" << endl;
+                getline(cin, name);
+            break;
+            case 2:
+                cout << "Enter new description:" << endl;
+                getline(cin, desc);
+            break;
+            case 3:
+                cout << "Enter new date in the format mm/dd/yyyy:" << endl;
+                getline(cin, date);
+            break;
+            case 4:
+                cout << "Enter new time in format hh:mm:" << endl;
+                getline(cin, time);
+            break;
+            case 5:
+                cout << "Enter new location" << endl;
+                getline(cin, location);
+            break;
+        }
+        cout << "1. Save" << endl;
+        cout << "2. Cancel" << endl;
         int input;
         cin >> input;
-        cin.ignore();
         if (input == 1) {
-            string name;
-            cout << "Enter new name:" << endl;
-            getline(cin, name);
-            selectedEvent->setName(name);
-        } else if (input == 2) {
-            string desc;
-            cout << "Enter new description:" << endl;
-            getline(cin, desc);
-            selectedEvent->setDescription(desc);
-        } else if (input == 3) {
-            string date;
-            cout << "Enter new date in the format mm/dd/yyyy:" << endl;
-            getline(cin, date);
-            delete selectedEvent->getDate();
-            selectedEvent->setDate(new Date(date));
-        } else if (input == 4) {
-            string time;
-            cout << "Enter new time in format hh:mm:" << endl;
-            getline(cin, time);
-            delete selectedEvent->getTime();
-            selectedEvent->setTime(new Time(time));
-        } else if (input == 5) {
-            string location;
-            cout << "Enter new location" << endl;
-            getline(cin, location);
-            selectedEvent->setLocation(location);
-        } else {
-            return 0;
+            switch(option) {
+                case 1:
+                    goals.setTaskName(idGoal, idTask, name);
+                break;
+                case 2:
+                    goals.setTaskDescription(idGoal, idTask, desc);
+                break;
+                case 3:
+                    goals.setTaskDate(idGoal, idTask, date);
+                break;
+                case 4:
+                    goals.setTaskTime(idGoal, idTask, time);
+                break;
+                case 5:
+                    goals.setTaskLocation(idGoal, idTask, location);
+                break;
+            }
         }
-        
         cout << endl;
         cout << "Would you like to change anything else?" << endl;
         cout << "1. Yes" << endl;
         cout << "2. No" << endl;
-
         cin >> input;
         if (input == 2) {
             return 0;
         }
-
     }
 
     return 0;
@@ -156,51 +160,26 @@ int editTaskMenu(vector<Event*> &events) {
 
 // Deletes a task from the list
 // TODO - ADD THE DELETE FUNCTIONALITY
-int deleteTaskMenu(vector<Event*> &events) {
+int deleteTaskMenu(GoalList& goals, vector<Event*> &events) {
     system("clear");
     cin.clear();
     cin.ignore();
-    cout << "Delete Task Menu." << endl;
+    cout << "Current goals:" << endl;
+    goals.print();
+    int idGoal;
+    int idTask;
+    cout << "Enter the Id of goal:" << endl;
+    cin >> idGoal;
 
-    cout << "Current tasks: " << endl;
-    displayNames(events);
-    cout << endl;
-
-    cout << "Enter the name of the task you would like to delete:" << endl;
-
-    string taskName;
-    bool foundName = false;
-    Event* selectedEvent;
-
-    while (true) {
-        getline(cin, taskName);
-
-        for (unsigned i = 0; i < events.size(); ++i) {
-            if (events.at(i)->getName() == taskName) {
-                foundName = true;
-                selectedEvent = events.at(i);
-                events.erase(events.begin()+i);
-                break;
-            }
-        }
-
-        if (foundName) {
-            break; 
-        }
-
-        cout << "Invalid task name, please try again: " << endl;
-    }
-
+    cout << "Enter the Id of Task to be deleted:" << endl;
+    cin >> idTask;
+    
     cout << "1. Confirm delete" << endl;
     cout << "2. Cancel" << endl;
     int input;
     cin >> input;
     if(1 == input) {
-        delete selectedEvent->getDate();
-        delete selectedEvent->getTime();
-        delete selectedEvent;
-
-        cout << "Deleted" << endl;
+        goals.removeEvent(idGoal, idTask);
     }
     return 0;
 }
@@ -261,7 +240,7 @@ int createGoal(GoalList& goals) {
     getline(cin, name);
     cout << "Enter description of the goal:" << endl;
     getline(cin, des);
-    cout << "Enter due date of goal:" << endl; 
+    cout << "Enter due date in the format mm/dd/yyyy:" << endl; 
     getline(cin, date);
     cout << "1. Save" << endl;
     cout << "2. Cancel" << endl;
@@ -279,6 +258,8 @@ int createGoal(GoalList& goals) {
 int editGoal(GoalList& goals) {
     system("clear");
     cout << "Edit Goal Menu." << endl;
+    cout << "Current goals:" << endl;
+    goals.print();
     //Show the goal list.
     cin.clear();
     cin.ignore();
@@ -288,20 +269,56 @@ int editGoal(GoalList& goals) {
     string date;
     cout << "Enter the Id of Goal to edit:" << endl;
     cin >> id;
-    cin.ignore();
-    cout << "Enter name of the goal:" << endl;
-    getline(cin, name);
-    cout << "Enter description of the goal:" << endl;
-    getline(cin, des);
-    cout << "Enter due date of goal:" << endl; 
-    getline(cin, date);
-    cout << "1. Save" << endl;
-    cout << "2. Cancel" << endl;
-    int input;
-    cin >> input;
-    if(1 == input) {
-        //save the goal.
-    } 
+    while(true) {
+        cin.ignore();
+        cout << endl;
+        cout << "What would you like to change?" << endl;
+        cout << "1. Name" << endl;
+        cout << "2. Description" << endl;
+        cout << "3. Date" << endl;
+        int option;
+        cin >> option;
+        cin.ignore();
+        switch(option) {
+            case 1:
+                cout << "Enter new name of the goal:" << endl;
+                getline(cin, name);
+            break;
+            case 2:
+                cout << "Enter new description of the goal:" << endl;
+                getline(cin, des);
+            break;    
+            case 3:
+                cout << "Enter new due date in the format mm/dd/yyyy:" << endl; 
+                getline(cin, date);
+            break;
+        }
+        cout << "1. Save" << endl;
+        cout << "2. Cancel" << endl;
+        int input;
+        cin >> input;
+        if(1 == input) {
+            switch(option) {
+                case 1:    
+                    goals.setGoalName(id, name);
+                break;
+                case 2:
+                    goals.setGoalDescription(id, des);
+                break;    
+                case 3:
+                    goals.setGoalDate(id, date);
+                break;
+            }
+        } 
+        cout << endl;
+        cout << "Would you like to change anything else?" << endl;
+        cout << "1. Yes" << endl;
+        cout << "2. No" << endl;
+        cin >> input;
+        if (input == 2) {
+            return 0;
+        }
+    }
     return 0;
 }
 
@@ -331,61 +348,49 @@ int showMainMenu() {
         system("clear");
         cout <<"Main Menu"<<endl;
         cout <<"Select option"<<endl;
-        cout <<"1. Create Task"<<endl;
-        cout <<"2. Edit Task"<<endl;
-        cout <<"3. Delete Task"<<endl;
-        cout <<"4. View All Tasks"<<endl;
-        cout <<"5. View Schedule"<<endl;
-        cout <<"6. Create Goal"<<endl;
-        cout <<"7. Edit Goal"<<endl;
-        cout <<"8. Delete Goal"<<endl;
-        cout <<"9. Exit"<<endl;
+        cout <<"1. Create Goal"<<endl;
+        cout <<"2. Edit Goal"<<endl;
+        cout <<"3. Delete Goal"<<endl;
+        cout <<"4. Create Task"<<endl;
+        cout <<"5. Edit Task"<<endl;
+        cout <<"6. Delete Task"<<endl;
+        cout <<"7. View Schedule"<<endl;
+        cout <<"8. Exit"<<endl;
         
         int input;
         cin >> input;
         switch (input){
             case 1:
-                //Show create task menu.
-                showCreateTaskMenu(events);
-            break;
-
-            case 2:
-                //Edit task menu.
-                editTaskMenu(events);
-            break;
-
-            case 3:
-                //Show delete task menu.
-                deleteTaskMenu(events);
-            break;
-
-            case 4:
-                showTasks(events);
-            break;
-
-            case 5:
-                //View schedule.
-                viewSchedule(goals, events);
-            break;
-
-            case 6:
                 createGoal(goals);
             break;
 
-            case 7:
+            case 2:
                 editGoal(goals);
+            break;
+
+            case 3:
+                deleteGoal(goals);
+            break;
+
+            case 4:
+                showCreateTaskMenu(goals, events);
+            break;
+
+            case 5:
+                editTaskMenu(goals, events);
+            break;
+
+            case 6:
+                deleteTaskMenu(goals, events);
+            break;
+
+            case 7:
+                viewSchedule(goals, events);
             break;
             
             case 8:
-                deleteGoal(goals);
+                return 0;
             break;
-            
-            case 9:
-
-            return 0;
-
-            break;
-
         }
     }
     return 0;

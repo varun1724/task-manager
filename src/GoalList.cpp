@@ -31,14 +31,92 @@ void GoalList::removeGoal(int id) {
 
 void GoalList::print(){
     for(int i = 0; i < goals.size(); i++){
-        cout << "*********************************" << endl;
-        cout << "Goal: " << endl;
-        cout << "id: " << goals[i].getId()<<endl;
-        cout << "name: " << goals[i].getName()<<endl;
-        cout << "description: " << goals[i].getDescription()<<endl;
-        cout << "date: ";
-        goals[i].getDate()->printDate();
-        cout << endl;
-        cout << "*********************************" << endl;
+       goals[i].print();
+    }
+}
+
+void GoalList::addEvent(int id, Event event) {
+    for(int i =0; i < goals.size(); i++) {
+        if(id == goals[i].getId()) {
+            goals[i].addEvent(event);
+            break;
+        }
+    }
+}
+
+void GoalList::removeEvent(int idGoal, int idEvent) {
+    for(int i =0; i < goals.size(); i++) {
+        if(idGoal == goals[i].getId()) {
+            goals[i].removeEvent(idEvent);
+            break;
+        }
+    }
+}
+
+void GoalList::setGoalName(int id, string name) {
+    for(int i =0; i < goals.size(); i++) {
+        if(id == goals[i].getId()) {
+            goals[i].setName(name);
+            break;
+        }
+    }
+}
+
+void GoalList::setGoalDescription(int id, string description) {
+    for(int i =0; i < goals.size(); i++) {
+        if(id == goals[i].getId()) {
+            goals[i].setDescription(description);
+            break;
+        }
+    }
+}
+
+void GoalList::setGoalDate(int id, string date) {
+    for(int i =0; i < goals.size(); i++) {
+        if(id == goals[i].getId()) {
+            goals[i].setDate(date);
+            break;
+        }
+    }
+}
+
+void GoalList::setTaskName(int idGoal, int idTask, string name) {
+   for(int i =0; i < goals.size(); i++) {
+        if(idGoal == goals[i].getId()) {
+            goals[i].setTaskName(idTask, name);
+            break;
+        }
+    }
+}
+void  GoalList::setTaskDescription(int idGoal, int idTask, string description) {
+    for(int i =0; i < goals.size(); i++) {
+        if(idGoal == goals[i].getId()) {
+            goals[i].setTaskDescription(idTask, description);
+            break;
+        }
+    }
+}
+void  GoalList::setTaskDate(int idGoal, int idTask, string date) {
+    for(int i =0; i < goals.size(); i++) {
+        if(idGoal == goals[i].getId()) {
+            goals[i].setTaskDate(idTask, date);
+            break;
+        }
+    }
+}
+void  GoalList::setTaskTime(int idGoal, int idTask, string time) {
+    for(int i =0; i < goals.size(); i++) {
+        if(idGoal == goals[i].getId()) {
+            goals[i].setTaskTime(idTask, time);
+            break;
+        }
+    }
+}
+void  GoalList::setTaskLocation(int idGoal, int idTask, string location) {
+    for(int i =0; i < goals.size(); i++) {
+        if(idGoal == goals[i].getId()) {
+            goals[i].setTaskLocation(idTask, location);
+            break;
+        }
     }
 }

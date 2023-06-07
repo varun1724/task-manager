@@ -22,6 +22,8 @@ public:
     void displayList() const;
     void displayNames() const;
     void displayEvent(string);
+    int size();
+    Event& getEvent(int id);
 };
 
 #endif
