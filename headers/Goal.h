@@ -25,6 +25,15 @@ public:
     void setId(int id);
     void addEvent(Event event);
     void removeEvent(int id);
+    void print();
+    void setName(string name);
+    void setDescription(string name);
+    void setDate(string date);
+    void setTaskName(int idTask, string name);
+    void setTaskDescription(int idTask, string name);
+    void setTaskDate(int idTask, string date);
+    void setTaskTime(int idTask, string time);
+    void setTaskLocation(int idTask, string location);
 };
 
 #endif

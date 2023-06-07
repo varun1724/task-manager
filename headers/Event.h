@@ -14,7 +14,6 @@ private:
     Date* date;
     Time* time;
     string location;
-
     // A task is the same thing as an event but the only difference is that is shows up in the list
     // under a goal. How do we want to code this?
     bool isTask; 
@@ -35,7 +34,10 @@ public:
     void setName(string);
     void setDescription(string);
     void setDate(Date*);
+    void setDate(string date);
+
     void setTime(Time*);
+    void setTime(string time);
     void setLocation(string);
 
     void printEvent();
