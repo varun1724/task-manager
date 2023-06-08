@@ -11,3 +11,4 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 link_directories(${LIBRARY_OUTPUT_PATH})
 
 add_subdirectory(src)
+add_subdirectory(test)

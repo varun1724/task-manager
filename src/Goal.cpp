@@ -102,4 +102,7 @@ bool Goal::taskIDExists(int id) const {
     return events.taskIDExists(id);
 }
 
+Event& Goal::getEvent(int id) {
+    return events.getEvent(id);
+}
 

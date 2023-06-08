@@ -36,6 +36,7 @@ public:
     int getSize() const;
     int getLargestTaskID() const;
     bool taskIDExists(int id) const;
+    Event& getEvent(int id);
 };
 
 #endif
