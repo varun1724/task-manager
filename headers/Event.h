@@ -18,7 +18,7 @@ private:
 
 public:
     Event();
-    Event(string, string, string, string, string);
+    Event(string name, string description, string date, string time, string location);
     ~Event();
 
     // Getters

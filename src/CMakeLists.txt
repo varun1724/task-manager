@@ -11,3 +11,15 @@ add_executable(taskscheduler
   GoalList.cpp
 )
 
+add_library(shcedulerLibrary
+  Event.cpp
+  EventList.cpp
+  Goal.cpp
+  GoalList.cpp
+)
+
+find_library(M_LIB m)
+target_link_libraries(shcedulerLibrary ${M_LIB})
+
+
+

@@ -166,6 +166,21 @@ int GoalList::getTasksSize(int goalID) const {
     return false;
  }
 
+Goal& GoalList::getGoal(int id) {
+    int j = 0;
+    for (unsigned i = 0; i < goals.size(); ++i) {
+        if (goals.at(i).getId() == id) {
+            j = i;
+        }
+    }
+    return goals.at(j);
+}
+
+Event& GoalList::getEvent(int idGoal, int idTask) {
+    Goal& goal = getGoal(idGoal);
+    return goal.getEvent(idTask);
+}
+
 
 // Print
 

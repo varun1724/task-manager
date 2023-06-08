@@ -35,7 +35,8 @@ public:
     int getSize() const;
     int getTasksSize(int) const;
     bool taskIDExists(int id, int goalID) const;
-
+    Goal& getGoal(int id);
+    Event& getEvent(int idGoal, int idTask);
     void print();
      
 };
