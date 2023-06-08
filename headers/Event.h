@@ -11,22 +11,22 @@ class Event
 private:
     string name;
     string description;
-    Date* date;
-    Time* time;
+    string date;
+    string time;
     string location;
     bool isInGoal = false; 
     int taskID = 0;
 
 public:
     Event();
-    Event(string, string, Date*, Time*, string);
+    Event(string, string, string, string, string);
     ~Event();
 
     // Getters
     string getName() const;
     string getDescription() const;
-    Date* getDate() const;
-    Time* getTime() const;
+    string getDate() const;
+    string getTime() const;
     string getLocation() const;
 
     bool getGoalStatus() const;
@@ -35,11 +35,9 @@ public:
     // Setters
     void setName(string);
     void setDescription(string);
-    void setDate(Date*);
-    void setDate(string date);
+    void setDate(string);
 
-    void setTime(Time*);
-    void setTime(string time);
+    void setTime(string);
 
     void setLocation(string);
 

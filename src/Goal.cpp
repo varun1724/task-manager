@@ -2,7 +2,7 @@
 using namespace std;
 
 
-Goal:: Goal(string name, string description, Date *date)
+Goal:: Goal(string name, string description, string date)
 {
     this->name = name;
     this->description = description;
@@ -23,7 +23,7 @@ string Goal::getDescription() const {
     return description;
 }
 
-Date* Goal::getDate() const {
+string Goal::getDate() const {
     return date;
 }
     
@@ -49,8 +49,7 @@ void Goal::print() {
     cout << "id: " << id <<endl;
     cout << "name: " << name <<endl;
     cout << "description: " << description<<endl;
-    cout << "date: ";
-    date->printDate();
+    cout << "date: " << date;
     cout << endl;
     cout << endl;
     cout << "Tasks:";
@@ -68,8 +67,7 @@ void Goal::setDescription(string description) {
     this->description = description;
 }
 void Goal::setDate(string date) {
-    delete this->date;
-    this->date = new Date(date);
+    this->date = date;
 }
 void Goal::setTaskName(int idTask, string name) {
      Event& e = events.getEvent(idTask - 1);

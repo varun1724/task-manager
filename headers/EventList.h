@@ -30,8 +30,8 @@ public:
     int getSize() const;
 
     void setName(string, int);
-    void setDate(Date*, int);
-    void setTime(Time*, int);
+    void setDate(string, int);
+    void setTime(string, int);
     void setDesc(string, int);
     void setlocation(string, int);
 

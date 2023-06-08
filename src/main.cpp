@@ -1,6 +1,5 @@
 #include <iostream>
 
-#include "../headers/Calendar.h"
 #include "../headers/Goal.h"
 #include "../headers/Event.h"
 #include "../headers/EventList.h"
@@ -60,7 +59,7 @@ int showCreateTaskMenu(GoalList& goals, EventList& events) {
             cin >> input;
 
             if (input == 1) {
-                Event* event = new Event(name, desc, new Date(date), new Time(time), location);
+                Event* event = new Event(name, desc, date, time, location);
 
                 if (goals.idExists(id)) {
                     goals.addEvent(id, *event);
@@ -188,10 +187,10 @@ int editTaskMenu(GoalList& goals, EventList &events) {
                     break;
                     case 3:
                         // Will get memory leak here because previous date was not deleted
-                        events.setDate(new Date(date), eventNum);
+                        events.setDate(date, eventNum);
                     break;
                     case 4:
-                        events.setTime(new Time(time), eventNum);
+                        events.setTime(time, eventNum);
                     break;
                     case 5:
                         events.setlocation(location, eventNum);
@@ -508,8 +507,7 @@ int createGoal(GoalList& goals) {
 
     if(1 == input) {
         //save the goal.
-        Date *dt = new Date(date);
-        Goal *goal = new Goal(name, des, dt);
+        Goal *goal = new Goal(name, des, date);
         goals.addGoal(*goal);
     }
     return 0;
