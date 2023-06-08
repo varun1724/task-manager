@@ -139,11 +139,11 @@ void EventList::setName(string name, int eventNum) {
     events.at(eventNum).setName(name);
 }
 
-void EventList::setDate(Date* date, int eventNum) {
+void EventList::setDate(string date, int eventNum) {
     events.at(eventNum).setDate(date);
 }
 
-void EventList::setTime(Time* time, int eventNum) {
+void EventList::setTime(string time, int eventNum) {
     events.at(eventNum).setTime(time);
 }
 

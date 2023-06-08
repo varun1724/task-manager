@@ -6,13 +6,13 @@ using namespace std;
 Event::Event() {
     name = "";
     description = "";
-    date = new Date(0, 0, 1000);
-    time = new Time(0, 0);
+    date = "";
+    time = "";
     location = "";
 }
 
 
-Event::Event(string nm, string des, Date* curDate, Time* curTime, string loc)
+Event::Event(string nm, string des, string curDate, string curTime, string loc)
 {
     name = nm;
     description = des;
@@ -38,12 +38,12 @@ string Event::getDescription() const {
 }
 
 
-Date* Event::getDate() const {
+string Event::getDate() const {
     return date;
 }
 
 
-Time* Event::getTime() const {
+string Event::getTime() const {
     return time;
 }
 
@@ -75,22 +75,13 @@ void Event::setDescription(string newDes) {
 }
 
 
-void Event::setDate(Date* newDate) {
+void Event::setDate(string newDate) {
     date = newDate;
 }
 
-void Event::setDate(string dt) {
-    delete date;
-    date = new Date(dt);
-}
 
-void Event::setTime(Time* newTime) {
+void Event::setTime(string newTime) {
     time = newTime;
-}
-
-void Event::setTime(string t) {
-    delete time;
-    time = new Time(t);
 }
 
 void Event::setLocation(string newLoc) {
@@ -108,14 +99,8 @@ void Event::setTaskID(int id) {
 }
 
 
-
 void Event::printEvent() {
 
-    cout << "Name: " << name << ", "; 
-    date->printDate();
-    cout << " "; 
-    time->printTime();
-    cout << " at " << location << endl;
-
+    cout << "Name: " << name << ", " << date << " " << time << " at " << location << endl;
     cout << "Description: " << description << endl;
 }

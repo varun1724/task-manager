@@ -5,23 +5,13 @@
 using namespace std;
 
 struct Time {
-    int hour;
-    int minutes;
-
-    Time(int inputHour, int inputMinutes) : hour(inputHour), minutes(inputMinutes) {};
+    
+    string time;
 
     Time(string t) {
         
-        string hourStr = t.substr(0, 2);
-        string minStr = t.substr(3, 2);
-
-        hour = stoi(hourStr);
-        minutes = stoi(minStr);
-
+        time = t;
     }
     
-    void printTime() const {
-        cout << hour << ":" << minutes;
-    }
 };
 #endif

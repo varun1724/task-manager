@@ -12,15 +12,15 @@ class Goal
 private:
     string name;
     string description;
-    Date* date;
+    string date;
     int id;
     EventList events;
 public:
-    Goal(string name, string description, Date *date);
+    Goal(string name, string description, string date);
     ~Goal();
     string getName() const;
     string getDescription() const;
-    Date* getDate() const;
+    string getDate() const;
     int getId() const;
     void setId(int id);
     void addEvent(Event event);
