@@ -18,12 +18,27 @@ public:
     void addEvent(Event);
     void removeEvent(string);
     bool findEvent(string) const;
+    int findEventNumber(string) const;
     void removeEvent(int id);
+
     void displayList() const;
     void displayNames() const;
     void displayEvent(string);
-    int size();
+
+
     Event& getEvent(int id);
+    int getSize() const;
+
+    void setName(string, int);
+    void setDate(Date*, int);
+    void setTime(Time*, int);
+    void setDesc(string, int);
+    void setlocation(string, int);
+
+    int getLargestTaskId() const;
+    bool taskIDExists(int id) const;
+
+
 };
 
 #endif

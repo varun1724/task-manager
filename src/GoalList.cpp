@@ -4,7 +4,7 @@
 using namespace std;
 
 
-GoalList::GoalList(/* args */)
+GoalList::GoalList()
 {
     currentId = 0;
 }
@@ -29,15 +29,17 @@ void GoalList::removeGoal(int id) {
     }
 }
 
-void GoalList::print(){
-    for(int i = 0; i < goals.size(); i++){
-       goals[i].print();
-    }
-}
 
 void GoalList::addEvent(int id, Event event) {
     for(int i =0; i < goals.size(); i++) {
         if(id == goals[i].getId()) {
+            event.setGoalStatus(true);
+            if (goals.at(i).getSize() == 0) {
+                event.setTaskID(0);
+            } else {
+                event.setTaskID(goals.at(i).getLargestTaskID()+1);
+            }
+            
             goals[i].addEvent(event);
             break;
         }
@@ -52,6 +54,9 @@ void GoalList::removeEvent(int idGoal, int idEvent) {
         }
     }
 }
+
+
+// Setters
 
 void GoalList::setGoalName(int id, string name) {
     for(int i =0; i < goals.size(); i++) {
@@ -120,3 +125,53 @@ void  GoalList::setTaskLocation(int idGoal, int idTask, string location) {
         }
     }
 }
+
+
+// Helper functions with ID and Size
+
+bool GoalList::idExists(int id) const {
+    for (unsigned i = 0; i < goals.size(); ++i) {
+        if (goals.at(i).getId() == id) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+int GoalList::getSize() const {
+    return goals.size();
+}
+
+int GoalList::getTasksSize(int goalID) const {
+    for (unsigned i = 0; i < goals.size(); ++i) {
+        if (goals.at(i).getId() == goalID) {
+            return goals.at(i).getSize();
+        }
+    }
+    return 0;
+}
+
+
+ bool GoalList::taskIDExists(int id, int goalID) const {
+    for (unsigned i = 0; i < goals.size(); ++i) {
+        if (goals.at(i).getId() == goalID) {
+            if (goals.at(i).taskIDExists(id)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+ }
+
+
+// Print
+
+void GoalList::print() {
+    for (int i = 0; i < goals.size(); i++){
+       goals[i].print();
+    }
+}
+

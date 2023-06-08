@@ -15,19 +15,19 @@ Goal::~Goal()
     
 }
 
-string Goal::getName() {
+string Goal::getName() const {
     return name;
 }
 
-string Goal::getDescription() {
+string Goal::getDescription() const {
     return description;
 }
 
-Date* Goal::getDate() {
+Date* Goal::getDate() const {
     return date;
 }
     
-int Goal::getId() {
+int Goal::getId() const {
     return id;
 }
 
@@ -53,9 +53,12 @@ void Goal::print() {
     date->printDate();
     cout << endl;
     cout << endl;
-    cout << "Tasks:" << endl;
-    events.displayList();
-    cout << "*********************************" << endl;
+    cout << "Tasks:";
+    if (events.getSize() == 0) {
+        cout << "You have no tasks for this goal" << endl;
+    } else {
+        events.displayList();
+    }
 }
 
 void Goal::setName(string name) {
@@ -87,6 +90,18 @@ void Goal::setTaskTime(int idTask, string time) {
 void Goal::setTaskLocation(int idTask, string location) {
     Event& e = events.getEvent(idTask - 1);
     e.setLocation(location);
+}
+
+int Goal::getSize() const {
+    return events.getSize();
+}
+
+int Goal::getLargestTaskID() const {
+    return events.getLargestTaskId();
+}
+
+bool Goal::taskIDExists(int id) const {
+    return events.taskIDExists(id);
 }
 
 

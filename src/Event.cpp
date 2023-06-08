@@ -25,6 +25,8 @@ Event::~Event()
 {
     
 }
+
+
 // Getters
 string Event::getName() const {
     return name;
@@ -46,9 +48,21 @@ Time* Event::getTime() const {
 }
 
 
-string Event::getLocation() {
+string Event::getLocation() const {
     return location;
 }
+
+
+bool Event::getGoalStatus() const {
+    return isInGoal;
+}
+
+
+int Event::getTaskID() const {
+    return taskID;
+}
+
+
 
 // Setters
 void Event::setName(string newName) {
@@ -82,6 +96,17 @@ void Event::setTime(string t) {
 void Event::setLocation(string newLoc) {
     location = newLoc;
 }
+
+
+void Event::setGoalStatus(bool status) {
+    isInGoal = status;
+}
+
+
+void Event::setTaskID(int id) {
+    taskID = id;
+}
+
 
 
 void Event::printEvent() {

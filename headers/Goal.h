@@ -18,10 +18,10 @@ private:
 public:
     Goal(string name, string description, Date *date);
     ~Goal();
-    string getName();
-    string getDescription();
-    Date* getDate();
-    int getId();
+    string getName() const;
+    string getDescription() const;
+    Date* getDate() const;
+    int getId() const;
     void setId(int id);
     void addEvent(Event event);
     void removeEvent(int id);
@@ -34,6 +34,10 @@ public:
     void setTaskDate(int idTask, string date);
     void setTaskTime(int idTask, string time);
     void setTaskLocation(int idTask, string location);
+
+    int getSize() const;
+    int getLargestTaskID() const;
+    bool taskIDExists(int id) const;
 };
 
 #endif
