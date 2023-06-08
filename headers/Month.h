@@ -16,8 +16,9 @@ public:
     ~Month();
     void nextMonth();
     void prevMonth();
-private:
     int numDays() const;
+    string getMonthName();
+private:
     bool isLeapYear() const;
 };
 

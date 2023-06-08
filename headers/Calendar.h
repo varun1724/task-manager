@@ -19,7 +19,10 @@ private:
 public:
     Calendar(int year, string monthName);
     ~Calendar();
+    void nextCalMonth();
+    void prevCalMonth();
     void printCalendar();
+    int getYear();
 };
 
 #endif

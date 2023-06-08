@@ -91,8 +91,12 @@ Month::Month(int year, string name)
 {
     monthName = name;
     this->year = year;
-    days = new Day[10];
+    days = new Day[numDays()];
 
+}
+
+string Month::getMonthName(){
+    return this->monthName;
 }
 
 Month::~Month()

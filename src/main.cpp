@@ -218,13 +218,23 @@ int showTasks(vector<Event*> &events) {
 
 
 
-int viewSchedule(GoalList& goals, vector<Event*> &events) {
+int viewSchedule(Calendar calendar,GoalList& goals,vector<Event*> &events) {
     system("clear");
     cout << "View Schedule." << endl;
-    goals.print();
-    cout << "2. Back" << endl;
+    calendar.printCalendar();
+    cout << "1. Next Month" << endl;
+    cout << "2. Previous Month" << endl;
+    cout << "3. Select Date" << endl;
     int input;
     cin >> input;
+    if(input == 1){
+        calendar.nextCalMonth();
+        viewSchedule(calendar,goals,events);
+    }
+    else if(input == 2){
+        calendar.prevCalMonth();
+        viewSchedule(calendar,goals,events);
+    }
     return 0;
 }
 
@@ -343,7 +353,7 @@ int showMainMenu() {
 
     vector<Event*> events;
     GoalList goals;
-
+    Calendar calendar(2023,"February");
     while(true) {
         system("clear");
         cout <<"Main Menu"<<endl;
@@ -385,7 +395,7 @@ int showMainMenu() {
             break;
 
             case 7:
-                viewSchedule(goals, events);
+                viewSchedule(calendar, goals, events);
             break;
             
             case 8:
