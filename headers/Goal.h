@@ -1,8 +1,6 @@
 #ifndef GOAL_H
 #define GOAL_H
 #include "EventList.h"
-#include "../helper-structs/Time.hpp"
-#include "../helper-structs/Date.hpp"
 #include <string>
 
 using namespace std;

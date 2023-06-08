@@ -70,23 +70,23 @@ void Goal::setDate(string date) {
     this->date = date;
 }
 void Goal::setTaskName(int idTask, string name) {
-     Event& e = events.getEvent(idTask - 1);
+     Event& e = events.getEvent(idTask);
      e.setName(name);
 }
 void Goal::setTaskDescription(int idTask, string description) {
-     Event& e = events.getEvent(idTask - 1);
+     Event& e = events.getEvent(idTask);
      e.setDescription(description);
 }
 void Goal::setTaskDate(int idTask, string date) {
-    Event& e = events.getEvent(idTask - 1);
+    Event& e = events.getEvent(idTask);
     e.setDate(date);
 }
 void Goal::setTaskTime(int idTask, string time) {
-    Event& e = events.getEvent(idTask - 1);
+    Event& e = events.getEvent(idTask);
     e.setTime(time);
 }
 void Goal::setTaskLocation(int idTask, string location) {
-    Event& e = events.getEvent(idTask - 1);
+    Event& e = events.getEvent(idTask);
     e.setLocation(location);
 }
 
