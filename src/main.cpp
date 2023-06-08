@@ -18,7 +18,7 @@ void viewFormatting(GoalList&, EventList&);
 //////////////////////////////////////////////////////////////
 
 
-int showCreateTaskMenu(GoalList& goals, EventList& events) {
+int showCreateTaskMenu(GoalList& goals, EventList& events) {  //Input Validation Done
     while(true) {
         system("clear");
         cout << "Create Task Menu." << endl;
@@ -26,6 +26,25 @@ int showCreateTaskMenu(GoalList& goals, EventList& events) {
         cout << "2. Back" << endl;
         int input;
         cin >> input;
+
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a numeric input"<<endl;
+                cin >> input;
+            }
+            if(input != 1 && input != 2){
+                cout<<"Please enter a valid input"<<endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cin >> input;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }
+
         if(input == 1) {
             string name;
             string desc;
@@ -34,7 +53,7 @@ int showCreateTaskMenu(GoalList& goals, EventList& events) {
             string location;
 
             cout << "Enter Task Name:" << endl;
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
             getline(cin, name);
 
             cout << "Enter Description:" << endl;
@@ -49,14 +68,32 @@ int showCreateTaskMenu(GoalList& goals, EventList& events) {
             cout << "Enter location:" << endl;
             getline(cin, location);
 
-            cout << "Enter Id of goal (Enter 0 if you do not want to associate it with a goal):" << endl;
+            cout << "Enter Id of goal (Enter an existing goal's id associate it with a goal or it will be unassigned):" << endl;
             int id;
             cin >> id;
 
             cout << "1. Save" << endl;
             cout << "2. Cancel" << endl;
-
+            
             cin >> input;
+
+            //Input Validation
+            while(true){
+                if(cin.fail()){
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cout<<"Please enter a numeric input"<<endl;
+                    cin >> input;
+                }
+                if(input != 1 && input != 2){
+                    cout<<"Please enter a valid input"<<endl;
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cin >> input;
+                }
+                if(!cin.fail()){
+                    break;
+                }
+            }
 
             if (input == 1) {
                 Event* event = new Event(name, desc, date, time, location);
@@ -87,11 +124,11 @@ int showCreateTaskMenu(GoalList& goals, EventList& events) {
 
 
 
-int editTaskMenu(GoalList& goals, EventList &events) {
+int editTaskMenu(GoalList& goals, EventList &events) { //Validated Input
     system("clear");
     cout << "Edit Task Menu." << endl;
     cin.clear();
-    cin.ignore();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
     cout << "Current Tasks" << endl;
     viewFormatting(goals, events);
@@ -103,6 +140,23 @@ int editTaskMenu(GoalList& goals, EventList &events) {
     cout << "2. No" << endl;
     cin >> choice;
 
+    //Input Validation
+    while(true){
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout<<"Please enter a numeric input"<<endl;
+            cin >> choice;
+        }
+        if(choice != 1 && choice != 2){
+            cout<<"Please enter a valid input"<<endl;
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cin >> choice;
+        }
+        if(!cin.fail()){
+            break;
+        }
+    }    
 
     ////////////////////////////////
     // EDITING TASKS NOT WITHIN A GOAL
@@ -112,7 +166,7 @@ int editTaskMenu(GoalList& goals, EventList &events) {
 
         if (events.getSize() == 0) {
             cout << "You have no tasks outside goals" << endl;
-            cout << "2. Return to main menu" << endl;
+            cout << "Press any key to return to main menu" << endl;
             int in;
             cin >> in;
             return 0;
@@ -120,7 +174,7 @@ int editTaskMenu(GoalList& goals, EventList &events) {
 
         string name;
         cout << "Enter the name of the event you would like to edit" << endl;
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
         bool foundEvent = false;
         int eventNum;
@@ -147,7 +201,8 @@ int editTaskMenu(GoalList& goals, EventList &events) {
 
             int option;
             cin >> option;
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+ 
             string name;
             string desc;
             string date;
@@ -177,6 +232,23 @@ int editTaskMenu(GoalList& goals, EventList &events) {
             cout << "2. Cancel" << endl;
             int input;
             cin >> input;
+            //Input Validation
+            while(true){
+                if(cin.fail()){
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cout<<"Please enter a numeric input"<<endl;
+                    cin >> input;
+                }
+                if(input != 1 && input != 2){
+                    cout<<"Please enter a valid input"<<endl;
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cin >> input;
+                }
+                if(!cin.fail()){
+                    break;
+                }
+            }  
             if (input == 1) {
                 switch(option) {
                     case 1:
@@ -202,6 +274,23 @@ int editTaskMenu(GoalList& goals, EventList &events) {
             cout << "1. Yes" << endl;
             cout << "2. No" << endl;
             cin >> input;
+            //Input Validation
+            while(true){
+                if(cin.fail()){
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cout<<"Please enter a numeric input"<<endl;
+                    cin >> input;
+                }
+                if(input != 1 && input != 2){
+                    cout<<"Please enter a valid input"<<endl;
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cin >> input;
+                }
+                if(!cin.fail()){
+                    break;
+                }
+            }   
             if (input == 2) {
                 return 0;
             }
@@ -214,7 +303,7 @@ int editTaskMenu(GoalList& goals, EventList &events) {
 
     if (goals.getSize() == 0) {
         cout << "You have no goals" << endl;
-        cout << "2. Return to main menu" << endl;
+        cout << "Press any key to return to main menu" << endl;
         int in;
         cin >> in;
         return 0;
@@ -228,6 +317,18 @@ int editTaskMenu(GoalList& goals, EventList &events) {
 
     while (!isValid) {
         cin >> idGoal;
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a valid ID"<<endl;
+                cin >> idGoal;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }        
         if (goals.idExists(idGoal)) {
             isValid = true;
         } else {
@@ -238,7 +339,7 @@ int editTaskMenu(GoalList& goals, EventList &events) {
     // The user has no tasks in the goal
     if (goals.getTasksSize(idGoal) == 0) {
         cout << "You have no tasks within this goal" << endl;
-        cout << "2. Return to main menu" << endl;
+        cout << "Press any key to return to main menu" << endl;
         int in;
         cin >> in;
         return 0;
@@ -250,6 +351,18 @@ int editTaskMenu(GoalList& goals, EventList &events) {
 
     while (!isValid) {
         cin >> idTask;
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a valid ID"<<endl;
+                cin >> idTask;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }
         if (goals.taskIDExists(idTask, idGoal) ) { 
             isValid = true;
         } else {
@@ -269,7 +382,8 @@ int editTaskMenu(GoalList& goals, EventList &events) {
 
         int option;
         cin >> option;
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
         string name;
         string desc;
         string date;
@@ -301,6 +415,23 @@ int editTaskMenu(GoalList& goals, EventList &events) {
         cout << "2. Cancel" << endl;
         int input;
         cin >> input;
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a numeric input"<<endl;
+                cin >> input;
+            }
+            if(input != 1 && input != 2){
+                cout<<"Please enter a valid input"<<endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cin >> input;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }
         if (input == 1) {
             switch(option) {
                 case 1:
@@ -325,6 +456,23 @@ int editTaskMenu(GoalList& goals, EventList &events) {
         cout << "1. Yes" << endl;
         cout << "2. No" << endl;
         cin >> input;
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a numeric input"<<endl;
+                cin >> input;
+            }
+            if(input != 1 && input != 2){
+                cout<<"Please enter a valid input"<<endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cin >> input;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }   
         if (input != 1) {
             return 0;
         }
@@ -342,10 +490,10 @@ int editTaskMenu(GoalList& goals, EventList &events) {
 //////////////////////////////////////////////////////////////
 
 
-int deleteTaskMenu(GoalList& goals, EventList &events) {
+int deleteTaskMenu(GoalList& goals, EventList &events) { //Input Validated
     system("clear");
     cin.clear();
-    cin.ignore();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
     viewFormatting(goals, events);
 
     int choice;
@@ -355,6 +503,24 @@ int deleteTaskMenu(GoalList& goals, EventList &events) {
     cout << "2. No" << endl;
     cin >> choice;
 
+    //Input Validation
+    while(true){
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout<<"Please enter a numeric input"<<endl;
+            cin >> choice;
+        }
+        if(choice != 1 && choice != 2){
+            cout<<"Please enter a valid input"<<endl;
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cin >> choice;
+        }
+        if(!cin.fail()){
+            break;
+        }
+    }
+    
     if (choice == 2) {
 
         if (events.getSize() == 0) {
@@ -368,7 +534,7 @@ int deleteTaskMenu(GoalList& goals, EventList &events) {
         string name;
         bool foundEvent = false;
         cout << "Enter the name of the task" << endl;
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         while(!foundEvent) {
             getline(cin, name);
 
@@ -383,66 +549,122 @@ int deleteTaskMenu(GoalList& goals, EventList &events) {
         cout << "1. Confirm delete" << endl;
         cout << "2. Cancel" << endl;
         cin >> input;
-
-        if (input == 1) {
-            events.removeEvent(name);
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a numeric input"<<endl;
+                cin >> input;
+            }
+            if(input != 1 && input != 2){
+                cout<<"Please enter a valid input"<<endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cin >> input;
+            }
+            if(!cin.fail()){
+                break;
+            }
+            if (input == 1) {
+                events.removeEvent(name);
+            }
         }
-
         return 0;
     } 
 
-    if (goals.getSize() == 0) {
-        cout << "You have no goals" << endl;
-        cout << "2. Return to main menu" << endl;
-        int in;
-        cin >> in;
-        return 0;
-    }
-
-    int idGoal;
-    int idTask;
-    cout << "Enter the Id of goal:" << endl;
-
-    bool isValid = false;
-
-    while (!isValid) {
-        cin >> idGoal;
-        if (goals.idExists(idGoal)) {
-            isValid = true;
-        } else {
-            cout << "Invalid Goal ID, try again" << endl;
+        if (goals.getSize() == 0) {
+            cout << "You have no goals" << endl;
+            cout << "2. Return to main menu" << endl;
+            int in;
+            cin >> in;
+            return 0;
         }
-    }
 
-    if (goals.getTasksSize(idGoal) == 0) {
-        cout << "You have no tasks within this goal" << endl;
-        cout << "2. Return to main menu" << endl;
-        int in;
-        cin >> in;
-        return 0;
-    }
+        int idGoal;
+        int idTask;
+        cout << "Enter the Id of goal:" << endl;
 
-    cout << "Enter the Id of Task to be edited:" << endl; 
+        bool isValid = false;
 
-    isValid = false;
-
-    while (!isValid) {
-        cin >> idTask;
-        if (goals.taskIDExists(idTask, idGoal) ) { 
-            isValid = true;
-        } else {
-            cout << "Invalid Task ID, try again" << endl;
+        while (!isValid) {
+            cin >> idGoal;
+            //Input Validation
+            while(true){
+                if(cin.fail()){
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cout<<"Please enter a valid ID"<<endl;
+                    cin >> idGoal;
+                }
+                if(!cin.fail()){
+                    break;
+                }
+            }
+            if (goals.idExists(idGoal)) {
+                isValid = true;
+            } else {
+                cout << "Invalid Goal ID, try again" << endl;
+            }
         }
-    }
 
-    cout << "1. Confirm delete" << endl;
-    cout << "2. Cancel" << endl;
-    int input;
-    cin >> input;
-    if(1 == input) {
-        goals.removeEvent(idGoal, idTask);
-    }
-    return 0;
+        if (goals.getTasksSize(idGoal) == 0) {
+            cout << "You have no tasks within this goal" << endl;
+            cout << "2. Return to main menu" << endl;
+            int in;
+            cin >> in;
+            return 0;
+        }
+
+        cout << "Enter the Id of Task to be edited:" << endl; 
+
+        isValid = false;
+
+        while (!isValid) {
+            cin >> idTask;
+            //Input Validation
+            while(true){
+                if(cin.fail()){
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cout<<"Please enter a valid ID"<<endl;
+                    cin >> idTask;
+                }
+                if(!cin.fail()){
+                    break;
+                }
+            }
+            if (goals.taskIDExists(idTask, idGoal) ) { 
+                isValid = true;
+            } else {
+                cout << "Invalid Task ID, try again" << endl;
+            }
+        }
+
+        cout << "1. Confirm delete" << endl;
+        cout << "2. Cancel" << endl;
+        int input;
+        cin >> input;
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a numeric input"<<endl;
+                cin >> input;
+            }
+            if(input != 1 && input != 2){
+                cout<<"Please enter a valid input"<<endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cin >> input;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }
+        if(1 == input) {
+            goals.removeEvent(idGoal, idTask);
+        }
+        return 0;
 }
 
 
@@ -455,11 +677,11 @@ int deleteTaskMenu(GoalList& goals, EventList &events) {
 //////////////////////////////////////////////////////////////
 
 
-int viewSchedule(GoalList& goals, EventList &events) {
+int viewSchedule(GoalList& goals, EventList &events) { //Input Validated
     system("clear");
     cout << "View Schedule." << endl;
     viewFormatting(goals, events);
-    cout << "2. Back" << endl;
+    cout << "Press any key to return to menu" << endl;
 
     int input;
     cin >> input;
@@ -480,7 +702,7 @@ int viewSchedule(GoalList& goals, EventList &events) {
 
 
 
-int createGoal(GoalList& goals) {
+int createGoal(GoalList& goals) { //Input Validated
     system("clear");
     cout << "Create Goal Menu." << endl;
 
@@ -488,7 +710,7 @@ int createGoal(GoalList& goals) {
     string des;
     string date;
     cin.clear();
-    cin.ignore();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
     
     cout << "Enter name of the goal:" << endl;
     getline(cin, name);
@@ -505,6 +727,23 @@ int createGoal(GoalList& goals) {
     int input;
     cin >> input;
 
+    //Input Validation
+    while(true){
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout<<"Please enter a numeric input"<<endl;
+            cin >> input;
+        }
+        if(input != 1 && input != 2){
+            cout<<"Please enter a valid input"<<endl;
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cin >> input;
+        }
+        if(!cin.fail()){
+            break;
+        }
+    }
     if(1 == input) {
         //save the goal.
         Goal *goal = new Goal(name, des, date);
@@ -523,14 +762,14 @@ int createGoal(GoalList& goals) {
 //////////////////////////////////////////////////////////////
 
 
-int editGoal(GoalList& goals) {
+int editGoal(GoalList& goals) { //Input Validated
     system("clear");
     cout << "Edit Goal Menu." << endl;
 
     // Check if there are no goals
     if (goals.getSize() == 0) {
         cout << "You have no goals" << endl;
-        cout << "2. Return to main menu" << endl;
+        cout << "Press any key to return to main menu" << endl;
         int in;
         cin >> in;
         return 0;
@@ -543,7 +782,7 @@ int editGoal(GoalList& goals) {
     cout << endl;
 
     cin.clear();
-    cin.ignore();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
     int id;
     string name;
@@ -556,6 +795,18 @@ int editGoal(GoalList& goals) {
     // Until user enters valoid goal ID
     while (!isValid) {
         cin >> id;
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a numeric input"<<endl;
+                cin >> id;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }
         if (goals.idExists(id)) {
             isValid = true;
         } else {
@@ -564,7 +815,7 @@ int editGoal(GoalList& goals) {
     }
     
     while(true) {
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cout << endl;
         cout << "What would you like to change?" << endl;
         cout << "1. Name" << endl;
@@ -572,7 +823,24 @@ int editGoal(GoalList& goals) {
         cout << "3. Date" << endl;
         int option;
         cin >> option;
-        cin.ignore();
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a numerical input"<<endl;
+                cin >> option;
+            }
+            if(option != 1 && option != 2 && option != 3){
+                cout<<"Please enter a valid input"<<endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cin >> option;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         switch(option) {
             case 1:
                 cout << "Enter new name of the goal:" << endl;
@@ -591,6 +859,23 @@ int editGoal(GoalList& goals) {
         cout << "2. Cancel" << endl;
         int input;
         cin >> input;
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a numerical input"<<endl;
+                cin >> input;
+            }
+            if(input != 1 && input != 2){
+                cout<<"Please enter a valid input"<<endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cin >> input;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }
         if(1 == input) {
             switch(option) {
                 case 1:    
@@ -609,6 +894,23 @@ int editGoal(GoalList& goals) {
         cout << "1. Yes" << endl;
         cout << "2. No" << endl;
         cin >> input;
+        //Input Validation
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a numerical input"<<endl;
+                cin >> input;
+            }
+            if(input != 1 && input != 2){
+                cout<<"Please enter a valid input"<<endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cin >> input;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }
         if (input == 2) {
             return 0;
         }
@@ -626,7 +928,7 @@ int editGoal(GoalList& goals) {
 
 
 
-int deleteGoal(GoalList& goals) {
+int deleteGoal(GoalList& goals) { //Input Validated
     system("clear");
     cout << "Delete Goal Menu." << endl;
     
@@ -652,6 +954,17 @@ int deleteGoal(GoalList& goals) {
     // Until the user enters a valid goal ID
     while (!isValid) {
         cin >> id;
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a valid ID"<<endl;
+                cin >> id;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }
         if (goals.idExists(id)) {
             isValid = true;
         } else {
@@ -663,6 +976,23 @@ int deleteGoal(GoalList& goals) {
     cout << "2. Cancel" << endl;
     int input;
     cin >> input;
+    //Input Validation
+    while(true){
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout<<"Please enter a numerical input"<<endl;
+            cin >> input;
+        }
+        if(input != 1 && input != 2){
+            cout<<"Please enter a valid input"<<endl;
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cin >> input;
+        }
+        if(!cin.fail()){
+            break;
+        }
+    }
     if (1 == input) {
         goals.removeGoal(id);
     }
@@ -677,7 +1007,7 @@ int deleteGoal(GoalList& goals) {
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
 
-int showMainMenu() {
+int showMainMenu() { //Input Validated
 
     EventList events;
     GoalList goals;
@@ -697,6 +1027,23 @@ int showMainMenu() {
         
         int input;
         cin >> input;
+        while(true){
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout<<"Please enter a numeric input"<<endl;
+                cin >> input;
+            }
+            if(input != 1 && input != 2 && input != 3 && input != 4 && input != 5 && input != 6 && input != 7 && input != 8){
+                cout<<"Please enter a valid input"<<endl;
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cin >> input;
+            }
+            if(!cin.fail()){
+                break;
+            }
+        }
+        
         switch (input){
             case 1:
                 createGoal(goals);
