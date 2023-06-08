@@ -1,10 +1,9 @@
 #ifndef EVENT_H
 #define EVENT_H
 
-#include "../helper-structs/Time.hpp"
-#include "../helper-structs/Date.hpp"
 #include <string>
-
+#include <iostream>
+using namespace std;
 // Modify to have this event
 class Event
 {
