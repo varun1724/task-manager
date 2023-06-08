@@ -1479,8 +1479,9 @@ src/CMakeFiles/taskscheduler.dir/main.cpp.o: src/main.cpp \
   /usr/include/c++/8/bits/stl_bvector.h \
   /usr/include/c++/8/bits/vector.tcc \
   headers/EventList.h \
-  headers/Event.h \
   headers/Goal.h \
+  headers/Event.h \
+  headers/EventList.h \
   headers/GoalList.h
 
 

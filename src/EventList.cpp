@@ -19,6 +19,15 @@ void EventList::removeEvent(int id) {
     events.erase(events.begin()+id);
 }
 
+void EventList::removeEvent(string name) {
+    for (unsigned i = 0; i < events.size(); ++i) {
+        if (events.at(i).getName() == name) {
+            events.erase(events.begin() + i);
+            return;
+        }
+    }
+}
+
 
 bool EventList::findEvent(string name) const {
 
@@ -33,26 +42,20 @@ bool EventList::findEvent(string name) const {
 
 
 // Displays all events and their information
-// TODO - REFACTOR THIS CODE TO USE THE DISPLAYEVENT FUNCTION LOCATED IN THE EVENT CLASS
 void EventList::displayList() const {
-
-    if (events.size() == 0) {
-        cout << "You have no upcoming tasks" << endl;
-        return;
-    }
 
     for (unsigned i = 0; i < events.size(); ++i) {
         Event curEvent = events.at(i);
 
         cout << endl;
 
-        cout << "Task #" << i+1 << ": " << curEvent.getName() << ", "; 
-        curEvent.getDate()->printDate();
-        cout << " "; 
-        curEvent.getTime()->printTime();
-        cout << " at " << curEvent.getLocation() << endl;
+        // Code to print out the goal number
 
-        cout << "Description: " << curEvent.getDescription() << endl;
+        if (events.at(i).getGoalStatus()) {
+            cout << "Task ID: " << events.at(i).getTaskID() << endl;
+        }
+
+        curEvent.printEvent();
     }
 }
 
@@ -79,6 +82,77 @@ void EventList::displayEvent(string name) {
     }
 }
 
+
+int EventList::findEventNumber(string name) const {
+    for (unsigned i = 0; i < events.size(); ++i) {
+        if (name == events.at(i).getName()) {
+            return i;
+        }
+    }
+
+    return 0;
+}
+
+
+
+// Getters
+
 Event& EventList::getEvent(int id) {
     return events[id];
+}
+
+
+int EventList::getSize() const {
+    return events.size();
+}
+
+
+int EventList::getLargestTaskId() const {
+    int largest = 0;
+    for (unsigned i = 0; i < events.size(); ++i) {
+        if (events.at(i).getTaskID() > largest) {
+            largest = events.at(i).getTaskID();
+        }
+    }
+
+    return largest;
+}
+
+
+
+// Check id a task ID exists within an event
+bool EventList::taskIDExists(int id) const {
+
+    for (unsigned i = 0; i < events.size(); ++i) {
+        if (events.at(i).getTaskID() == id) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+
+// Setters
+void EventList::setName(string name, int eventNum) {
+    events.at(eventNum).setName(name);
+}
+
+void EventList::setDate(Date* date, int eventNum) {
+    events.at(eventNum).setDate(date);
+}
+
+void EventList::setTime(Time* time, int eventNum) {
+    events.at(eventNum).setTime(time);
+}
+
+
+void EventList::setDesc(string desc, int eventNum) {
+    events.at(eventNum).setDescription(desc);
+}
+
+
+void EventList::setlocation(string location, int eventNum) {
+    events.at(eventNum).setLocation(location);
 }
