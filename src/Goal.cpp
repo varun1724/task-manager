@@ -12,7 +12,7 @@ Goal:: Goal(string name, string description, string date)
 
 Goal::~Goal()
 {
-    
+    events.~EventList();
 }
 
 string Goal::getName() const {

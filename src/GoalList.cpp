@@ -11,7 +11,8 @@ GoalList::GoalList()
 
 GoalList::~GoalList()
 {
-
+    goals.clear();
+    goals.shrink_to_fit();
 }
 
 void GoalList::addGoal(Goal goal) {
@@ -24,6 +25,7 @@ void GoalList::removeGoal(int id) {
     for(int i = 0; i < goals.size(); i++){
         if(goals[i].getId() == id) {
             goals.erase(goals.begin()+i);
+            goals.shrink_to_fit();
             break;
         }
     }
