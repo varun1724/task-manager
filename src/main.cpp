@@ -59,12 +59,12 @@ int showCreateTaskMenu(GoalList& goals, EventList& events) {
             cin >> input;
 
             if (input == 1) {
-                Event* event = new Event(name, desc, date, time, location);
+                Event event(name, desc, date, time, location);
 
                 if (goals.idExists(id)) {
-                    goals.addEvent(id, *event);
+                    goals.addEvent(id, event);
                 } else {
-                    events.addEvent(*event);
+                    events.addEvent(event);
                 }
             } else {
                 return 0;
@@ -507,8 +507,8 @@ int createGoal(GoalList& goals) {
 
     if(1 == input) {
         //save the goal.
-        Goal *goal = new Goal(name, des, date);
-        goals.addGoal(*goal);
+        Goal goal(name, des, date);
+        goals.addGoal(goal);
     }
     return 0;
 }
