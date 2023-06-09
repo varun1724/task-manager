@@ -6,55 +6,55 @@
 ## Project Description
 Technologies:
  Our group plans to use C++ as our main language as C++ is incredibly responsive and in the long term is incredibly efficient. 
-Due to us using C++, we would have to use Valgrind to check for memory leaks.
-GDB for debugging. 
-Visual Studio Code as our IDE and to be able to connect to UCR's servers.
-GitHub for distributed version control. 
-For Scrum we are using GitHub MoqUps/LucidChart for diagrams. 
-The GTest structure for unit tests. 
-Vim would be used for quick edits for files such as CMakeLists.txt
+To check for memory leaks, we will be using Valgrind and GDB to debug. 
+Our IDE is Visual Studio code and we are working together on the UCR computer science servers.
+GitHub will be used for distributed version control and our scrum diagrams will be done using GitHub MoqUps/LucidChart. 
+The Googletest submodule and structure will be used for unit tests.
 CMake would be used to compile our C++ code into an executable.
 Git would be used to allow us to make changes and keep track of stuff locally for our repository.
 
 Description:
-The members of my group and I want to become more productive and being able to make a high quality, responsive, task scheduler would help a large amount to reach our goals. Being able to be productive has always been a problem, and having a task scheduler would at the very least help us prioritize the tasks most important to us. Prioritizing constantly scheduling tasks would slowly help our group members to reach our personal productivity goals and to complete more tasks/goals. A good example of a task/goal for both of our group members is to increase/maintain the amount of good grades that we have in school. To achieve these longterm goals for us in this project, the project needs a complex featureset that can help to reach these goals. The features would be an internal calendar that enables the insertion and retrieval of tasks with their dates and times. Users of this project can schedule events and tasks infinitely far in the future, enabling each user to be able to reach specific goals and targets incrementally using these tasks. Also, users can assign these specific tasks for specific goals, so if the user has a specific goal they can assign a large amount of tasks to be able to achieve this goal. The task scheduler would also help users to be individually be able to time manage specific tasks, since presets can be added for each day so if the user has recurring events, timeslots can be blocked in case a task conflicts (this can be overriden in certain scenarios but it would prevent the user from overcommitting). Also, the user can check the amount of hours the combination of tasks would take as a way to prevent overcommitting in the longterm. The task scheduler would be able to suggest times through remembering some of the users most done tasks combined with looking at existing tasks and reserved blocks that are scheduled. This project's goal is to be the ultimate task scheduler so that our group would be able to schedule tasks in the long run.
+Each of us feel as if we have always had a problem with our productivity. To provide ourselves with a tool to fix this, we created a taskscheduler that would allow us to separate our tasks into smaller, more focused goals and tasks in order to keep busy throughout the day and get our things don on time. Our program allows users to add overarching goals that they have for themselves to a schedule and assign individual tasks within these goals. This way, once all the tasks are complete, they will have reached their goal in a productive and healthy manner. The user can also add tasks that are not associated with any individual goal, as we often hav to do tasks throughout the day that are not specific to some overaching theme. Some additional features include editing and deleting goals and tasks and viewing a whole schedule in a neat and easy-to-read display. The project is done using the command line and keyboard, so users can enter in all the information they want with (literally) zero clicks.
 
 Projects Inputs/Outputs:
 
 Inputs:
-Users would able to input their existing schedules and recurring tasks. New tasks and their specific times/dates. They can also input their long term goals to match specific tasks to.
+Users use the keyboard and numbers to create goals and tasks. They can navigate through the main menu by typing in the numbers that are associated with each menu item and pressing enter.
 
 Outputs:
-Users can retrieve thier specific tasks/goals. They can also retrieve the progression for these tasks/goals. Tehy can also retrieve the times/dates/scheduled time of teach task.
+The outputs are the results of what the user enters into the program. If they save any goals/tasks, they will be able to see them in the view schedule option. If they do not have any events, then they will be told so.
+
 ## User Interface Specification
 
 
 ### Navigation Diagram
 ![Navagation Diagram](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/111487418/0b0005b3-9afd-4dcc-83c8-4a874ad4aeef)
-The user is greeted with a menu upon running the program. They are prompted to enter certain inputs to access certain functions. The user will be able to access the month,day,and goals directly. The will be able to add and remove tasks from those classes or display all tasks in those classes. If the user chooses to display from the main menu, they will be able to see a list of the most relevant tasks.
+The user is greeted with a menu upon running the program. They are prompted to enter certain inputs to access 7 different functions: Create Task, Create Goal, Edit Task, Edit Goal, Delete Task, Delete Goal, and View Schedule. Once they have walked through a function, they will be prompted with the option to return to the main menu.
 
 
 ### Screen Layouts
-![Month Page](https://user-images.githubusercontent.com/112217896/236991391-739dc74a-b681-4a29-877e-2057d6b0f418.jpg)
+![Menu](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/17ef736e-4c29-45ac-a013-6ddffcb3c073)
 
-This screen displays the main calendar along with the names of the tasks that the user has assigned for themselves. On the right a section is displayed for the goals that the user has assigned themselves for the month. The top section displays two buttons that when clicked can be used to add new events or goals. Each individual goal can also be clicked into, bringing the screen to a new screen that displays any tasks assigned to the specific goal. Next to the goals, the set of arrows will change the month forwards and backwards. If a specific date is clicked, then the screen changes to the day screen, as described next.
+This screen displays the main menu for the user to see. It shows the 8 options that the user has, and the user can navigate through by pressing the number associated with the option and pressing enter. If they select 8, the program will exit. Otherwise, if the input is 1-7, the respective function will be entered into.
 
-![Day Screen](https://user-images.githubusercontent.com/112217896/236991446-8e49cd81-a10c-4bb7-8af1-b619bf2ad6fe.jpg)
+![Create Goal/Task](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/1279ab38-358a-49cb-9ff9-2489a9c3d28b)
 
-This screen displays an individual day along with the events that a user has planned. It shows the events next to the time that they have been planned for, along with a description under their title. If the user clicks on a goal, they will have the option to edit or delete it. On the right, the same goal screen as the month page is shown with the same functionality. The top also displays the same new event and goal buttons as the month page. The forward and backwards arrows can be used to change days, and the back button at the top left will navigate back to the month screen.
+This screen displays the current goal or task that is being created. In the picture above, it is the goal that is being created but the create tasks menu is very similar. Users are prompted with questions about the event they want to create and it is assigned to their schedule once saved.
 
-![Individual Goal Screen](https://user-images.githubusercontent.com/112217896/236991431-1f34215f-4452-400a-9179-ca79f2414ac4.jpg)
+![Edit Goal/Task](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/8d3fe2ff-9f3a-4347-a1c2-1d6bd8aef284)
 
-This screen displays an individual goal and the specific tasks assigned to the goal. Users have the option to edit, delete, or add new tasks to the goal. They can also add a new goal, as the goal screen from before remains unchanged. The arrows will bring the user to the next or previous goal, and the back arrow at the top left will bring the user back to the day screen. 
+This screen gives the user the option to edit goals or tasks. In the image above, the user has the option to edit a goal that they created, changing its time, name, or desription. Once saved, the changes are applied to the schedule. If the user does not have any goals or tasks they will be told and given the option to return to the main menu.
 
-![Add event pop-up screen](https://user-images.githubusercontent.com/112217896/236991470-292dfc35-43b3-4646-9fb4-fb0a8b636b11.jpg)
+![Delete Goal/ Task](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/5951cec4-6775-4866-bf00-0fb04e6eea44)
 
-This screen is a pop up that shows if the user clicks the button to add a new event or task. It prompts the user for information about the event/task they are going to add and has two buttons to confirm or cancel this addition
+This screen allows the user to delete their goals or tasks. In the image above, the option to delete a goal is shown. Users are presented with information on all of their goals or tasks and their IDs. When selecting a goal to delete, the user enters in the goal's correspoinding ID number and confirms the delete to save. 
 
 
 ### Class Diagram
 
 ![umlclassdiagram](https://user-images.githubusercontent.com/103800231/236993307-6cf53752-905b-4580-b8d6-6b1def90e44c.png)
+
+TODO - EDIT CLASS DIAGRAM AND DESCRIPTION. MENTION SOLID PRINCIPLES THAT WERE USED
 
 Above is the OMT class Diagram for the Task Scheduler. The Program functions by providing the user with a basic user interface that shows a calendar. The TaskScheduler class is composed of a Calendar object and a Scheduler object. When the startTaskManager() function is called from main, a case begins to handle the UI of the program and call the functions in both the Calendar and Scheduler classes to be able to display a calendar and allow for it to function. The Design for the program's menus and directories can be found in the user interface above. The task scheduler uses the Singleton design pattern to ensure that only one instance of a task management is created at a time so that the Task Manager can instatiate only one Task Management window at a time. The Task Manager class also contains a ClearScreen() object to be able to close out of the Task Manager.
 
@@ -69,36 +69,17 @@ When the application starts it loads the task data using the storage class which
 
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
 
  
  > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
+ TODO - IN PROGRESS AND IN TESTING COLUMNS NEED TO BE EMPTY. TODO COLUMN SHOULD INCLUDE ANY KNOWN BUGS OR FEATURES WE WOULD LIKE TO INCLUDE
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ![Delete Goal/ Task](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/5951cec4-6775-4866-bf00-0fb04e6eea44)
+ 
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing
+ TODO - THIS SECTION
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
