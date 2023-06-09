@@ -566,9 +566,9 @@ int deleteTaskMenu(GoalList& goals, EventList &events) { //Input Validated
             if(!cin.fail()){
                 break;
             }
-            if (input == 1) {
-                events.removeEvent(name);
-            }
+        }
+        if (input == 1) {
+            events.removeEvent(name);
         }
         return 0;
     } 
