@@ -445,7 +445,7 @@ TEST(EventListTest, testAddEvent) {
     EXPECT_EQ (testList.getSize(), 1);
 }
 
-/*TEST(EventListTest, testRemoveEvent) {
+TEST(EventListTest, testRemoveEvent) {
     string name = "event7";
     string des = "This is event7";
     string date = "07/30/2020";
@@ -453,7 +453,9 @@ TEST(EventListTest, testAddEvent) {
     string location = "test Location";
     Event *event = new Event(name,des,date,time,location);
     EventList testList;
-    EXPECT_EQ (testList.getSize(), 1);
+    testList.addEvent(*event);
+    testList.removeEvent(name);
+    EXPECT_EQ (testList.getSize(), 0);
 }
 
 TEST(EventListTest, testRemoveEvent2) {
@@ -464,7 +466,144 @@ TEST(EventListTest, testRemoveEvent2) {
     string location = "test Location";
     Event *event = new Event(name,des,date,time,location);
     EventList testList;
+    testList.addEvent(*event);
+    testList.addEvent(*event);
     testList.removeEvent(1);
-    //testList.removeEvent(name); Results in segmentation fault
     EXPECT_EQ (testList.getSize(), 1);
+}
+
+TEST(EventListTest, testfindEvent) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    EXPECT_EQ (testList.findEvent(name), true);
+}
+
+TEST(EventListTest, testfindEvent2) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    EXPECT_EQ (testList.findEvent("fail"), false);
+}
+
+TEST(EventListTest, testFindEventNumber) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    EXPECT_EQ (testList.findEventNumber(name), 0);
+}
+
+/*TEST(EventListTest, testDisplayList) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    EXPECT_EQ (testList.findEventNumber(name), 0);
 }*/
+
+/*TEST(EventListTest, testDisplayNames) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    EXPECT_EQ (testList.findEventNumber(name), 0);
+}*/
+
+/*TEST(EventListTest, testDisplayEvent) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    EXPECT_EQ (testList.findEventNumber(name), 0);
+}*/
+
+/*TEST(EventListTest, testGetEvent) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    Event *event2 = new Event("test case",des,date,time,location);
+    Event *event3 = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    testList.addEvent(*event2);
+    testList.addEvent(*event3);
+    EXPECT_EQ (testList.getEvent(2), *event2);
+}*/
+
+TEST(EventListTest, testGetSize) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    Event *event2 = new Event("test case",des,date,time,location);
+    Event *event3 = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    testList.addEvent(*event2);
+    testList.addEvent(*event3);
+    EXPECT_EQ (testList.getSize(), 3);
+}
+
+TEST(EventListTest, testGetLargestTaskID) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    Event *event2 = new Event("test case",des,date,time,location);
+    Event *event3 = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    testList.addEvent(*event2);
+    testList.addEvent(*event3);
+    EXPECT_EQ (testList.getLargestTaskId(), 0);
+}
+
+TEST(EventListTest, testtaskIDExist) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    Event *event2 = new Event("test case",des,date,time,location);
+    Event *event3 = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    testList.addEvent(*event2);
+    testList.addEvent(*event3);
+    EXPECT_EQ (testList.taskIDExists(4), false);
+}
