@@ -2,12 +2,12 @@
 #include <string.h>
 
 
-EventList::EventList(){
+EventList::EventList()
+{
 }
 
-EventList::~EventList(){
-    events.clear();
-    events.shrink_to_fit();
+EventList::~EventList()
+{
 }
 
 
