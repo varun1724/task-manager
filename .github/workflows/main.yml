@@ -1,8 +1,8 @@
 on:
   push:
-    branches: [ main ]
+    branches: [ main, pranaythakur_br_22]
   pull_request:
-    branches: [ main ]
+    branches: [ main, pranaythakur_br_22]
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -15,12 +15,15 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
-
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
+    # build
+    - name: build
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        git submodule init
+        git submodule update
+        cmake .
+        make
+
+    # Run test
+    - name: Run Tests 
+      run: |
+        ./bin/runAllTests
