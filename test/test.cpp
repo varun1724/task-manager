@@ -433,6 +433,19 @@ TEST(EventTest, testEventSetTaskID) {
     EXPECT_EQ(event->getTaskID(), 4);
 }
 
+TEST(EventTest, testEventPrintEvent) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    testing::internal::CaptureStdout();
+    event->printEvent();
+    string output = testing::internal::GetCapturedStdout();
+    EXPECT_NE (output, "");
+}
+
 TEST(EventListTest, testAddEvent) {
     string name = "event7";
     string des = "This is event7";
@@ -508,7 +521,7 @@ TEST(EventListTest, testFindEventNumber) {
     EXPECT_EQ (testList.findEventNumber(name), 0);
 }
 
-/*TEST(EventListTest, testDisplayList) {
+TEST(EventListTest, testDisplayList) {
     string name = "event7";
     string des = "This is event7";
     string date = "07/30/2020";
@@ -517,10 +530,13 @@ TEST(EventListTest, testFindEventNumber) {
     Event *event = new Event(name,des,date,time,location);
     EventList testList;
     testList.addEvent(*event);
-    EXPECT_EQ (testList.findEventNumber(name), 0);
-}*/
+    testing::internal::CaptureStdout();
+    testList.displayList();
+    string output = testing::internal::GetCapturedStdout();
+    EXPECT_NE (output, "");
+}
 
-/*TEST(EventListTest, testDisplayNames) {
+TEST(EventListTest, testDisplayNames) {
     string name = "event7";
     string des = "This is event7";
     string date = "07/30/2020";
@@ -529,10 +545,13 @@ TEST(EventListTest, testFindEventNumber) {
     Event *event = new Event(name,des,date,time,location);
     EventList testList;
     testList.addEvent(*event);
-    EXPECT_EQ (testList.findEventNumber(name), 0);
-}*/
+    testing::internal::CaptureStdout();
+    testList.displayNames();
+    string output = testing::internal::GetCapturedStdout();
+    EXPECT_NE (output, "");
+}
 
-/*TEST(EventListTest, testDisplayEvent) {
+TEST(EventListTest, testDisplayEvent) {
     string name = "event7";
     string des = "This is event7";
     string date = "07/30/2020";
@@ -541,10 +560,13 @@ TEST(EventListTest, testFindEventNumber) {
     Event *event = new Event(name,des,date,time,location);
     EventList testList;
     testList.addEvent(*event);
-    EXPECT_EQ (testList.findEventNumber(name), 0);
-}*/
+    testing::internal::CaptureStdout();
+    testList.displayEvent(name);
+    string output = testing::internal::GetCapturedStdout();
+    EXPECT_NE (output, "");
+}
 
-/*TEST(EventListTest, testGetEvent) {
+TEST(EventListTest, testGetEvent) {
     string name = "event7";
     string des = "This is event7";
     string date = "07/30/2020";
@@ -557,8 +579,9 @@ TEST(EventListTest, testFindEventNumber) {
     testList.addEvent(*event);
     testList.addEvent(*event2);
     testList.addEvent(*event3);
-    EXPECT_EQ (testList.getEvent(2), *event2);
-}*/
+    Event& event4 = testList.getEvent(0);
+    EXPECT_EQ (event4.getName(), name);
+}
 
 TEST(EventListTest, testGetSize) {
     string name = "event7";
@@ -606,4 +629,99 @@ TEST(EventListTest, testtaskIDExist) {
     testList.addEvent(*event2);
     testList.addEvent(*event3);
     EXPECT_EQ (testList.taskIDExists(4), false);
+}
+
+TEST(EventListTest, testSetName) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    Event *event2 = new Event("test case",des,date,time,location);
+    Event *event3 = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    testList.addEvent(*event2);
+    testList.addEvent(*event3);
+    string newName = "newName";
+    testList.setName(newName, 0);
+    Event& event4 = testList.getEvent(0);
+    EXPECT_EQ (event4.getName(), newName);
+}
+
+TEST(EventListTest, testSetDescription) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    Event *event2 = new Event("test case",des,date,time,location);
+    Event *event3 = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    testList.addEvent(*event2);
+    testList.addEvent(*event3);
+    string newDes = "newDes";
+    testList.setDesc(newDes, 0);
+    Event& event4 = testList.getEvent(0);
+    EXPECT_EQ (event4.getDescription(), newDes);
+}
+
+TEST(EventListTest, testSetDate) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    Event *event2 = new Event("test case",des,date,time,location);
+    Event *event3 = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    testList.addEvent(*event2);
+    testList.addEvent(*event3);
+    string newDate = "11/30/2020";
+    testList.setDate(newDate, 0);
+    Event& event4 = testList.getEvent(0);
+    EXPECT_EQ (event4.getDate(), newDate);
+}
+
+TEST(EventListTest, testSetTime) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    Event *event2 = new Event("test case",des,date,time,location);
+    Event *event3 = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    testList.addEvent(*event2);
+    testList.addEvent(*event3);
+    string newTime = "11:00";
+    testList.setTime(newTime, 0);
+    Event& event4 = testList.getEvent(0);
+    EXPECT_EQ (event4.getTime(), newTime);
+}
+
+TEST(EventListTest, testSetLocation) {
+    string name = "event7";
+    string des = "This is event7";
+    string date = "07/30/2020";
+    string time = "14:00";
+    string location = "test Location";
+    Event *event = new Event(name,des,date,time,location);
+    Event *event2 = new Event("test case",des,date,time,location);
+    Event *event3 = new Event(name,des,date,time,location);
+    EventList testList;
+    testList.addEvent(*event);
+    testList.addEvent(*event2);
+    testList.addEvent(*event3);
+    string newLocation = "newLocation";
+    testList.setlocation(newLocation, 0);
+    Event& event4 = testList.getEvent(0);
+    EXPECT_EQ (event4.getLocation(), newLocation);
 }
