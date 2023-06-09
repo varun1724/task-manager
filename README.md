@@ -75,10 +75,15 @@ When the application starts it loads the task data using the storage class which
  TODO - IN PROGRESS AND IN TESTING COLUMNS NEED TO BE EMPTY. TODO COLUMN SHOULD INCLUDE ANY KNOWN BUGS OR FEATURES WE WOULD LIKE TO INCLUDE
  
  ## Screenshots
- ![Delete Goal/ Task](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/5951cec4-6775-4866-bf00-0fb04e6eea44)
+ ![Viewing an empty schedule](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/695bdaee-de03-4532-9fe0-ef3f39af1f21)
+ 
+  ![Viewing a busy schedule](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/89bd0d3a-d5d5-4594-847d-203ad8833143)
  
  ## Installation/Usage
- > Instructions on installing and running your application
+
+Begin by cloning this github to your local device in a folder. This can be done by navigating to your desired location using the terminal command "cd" and running git clone "https://github.com/cs100/final-project-pthak008-jchan517-2". Any major IDE will work to run the program, so once you have the IDE open, open the project by navigating to the folder in which you cloned it. Open the terminal once again (it does not necessarily need to be an integrated terminal in your IDE) and run the command "cmake ." and hit enter. Next, run the command "make". Finally, your exectuable will be created and you can go ahead and run "bin/taskscheduler" to run the program.
+
+
  ## Testing
  TODO - THIS SECTION
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
