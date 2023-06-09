@@ -73,7 +73,7 @@ When the application starts it loads the task data using the storage class which
  ## Screenshots
  ![Viewing an empty schedule](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/695bdaee-de03-4532-9fe0-ef3f39af1f21)
  
- This is an example of what viewing and empty schedule would look like.
+ This is an example of what viewing an empty schedule would look like.
  
   ![Viewing a busy schedule](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/89bd0d3a-d5d5-4594-847d-203ad8833143)
   
