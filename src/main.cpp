@@ -244,7 +244,7 @@ int editTaskMenu(GoalList& goals, EventList &events) {
         return 0;
     }
 
-    cout << "Enter the Id of Task to be edited:" << endl; 
+    cout << "Enter the Id of Task to be deleted:" << endl; 
 
     isValid = false;
 
@@ -466,7 +466,6 @@ int viewSchedule(GoalList& goals, EventList &events) {
 
     return 0;
 }
-
 
 
 
