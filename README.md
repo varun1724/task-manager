@@ -28,7 +28,8 @@ The outputs are the results of what the user enters into the program. If they sa
 
 
 ### Navigation Diagram
-![Navagation Diagram](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/111487418/0b0005b3-9afd-4dcc-83c8-4a874ad4aeef)
+![Navagation Diagram](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/111487418/ab86ffb7-b223-4e8d-a3e1-da0adc392a30)
+
 
 
 ### Screen Layouts
