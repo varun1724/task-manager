@@ -85,6 +85,14 @@ Begin by cloning this github to your local device in a folder. This can be done 
 
 
  ## Testing
- TODO - THIS SECTION
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ 
+ To test this project, unit tests were created to test all of the classes and methods using Google Test (gtest). These unit tests can be ran both manually and automatically once you push your changes using CI.
+ 
+ After building, to run the tests manually use the command ./bin/runAllTests.
+ 
+ Memory Leak Check
+ 
+ To check memory leaks we used Valgrind to make sure that there are no memory leaks.
+ 
+ We also did manual testing by going through all of the screens and items listed in both our navigation diagrams and UML diagrams.
  
