@@ -29,8 +29,6 @@ The outputs are the results of what the user enters into the program. If they sa
 
 ### Navigation Diagram
 ![Navagation Diagram](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/111487418/0b0005b3-9afd-4dcc-83c8-4a874ad4aeef)
-TODO - FIX NATIVATION DIAGRAM
-The user is greeted with a menu upon running the program. They are prompted to enter certain inputs to access 7 different functions: Create Task, Create Goal, Edit Task, Edit Goal, Delete Task, Delete Goal, and View Schedule. Once they have walked through a function, they will be prompted with the option to return to the main menu.
 
 
 ### Screen Layouts
@@ -62,8 +60,6 @@ The interaction of the classes is like this:
 The main program creates two lists which are goal and events. These are instances of GoalList and the class EventList. The GoalList contains the list of goals which are instances of the goal class. The goal class contains an EventList. The EventList is again the list of objects of events. When the application starts the user can create a goal and add tasks to the goal. Also, the tasks can be created independently.
 
 While designing this program, we made sure that we followed the SOLID principles. For example, we made sure that each class has a single responsibility. Also, we at designed the classes in such a way that it follows the open and closed principle. You can add more classes without changing the code which acts on the classes. We also made sure that the other project principles are taken care of.
-
- TODO - IN PROGRESS AND IN TESTING COLUMNS NEED TO BE EMPTY. TODO COLUMN SHOULD INCLUDE ANY KNOWN BUGS OR FEATURES WE WOULD LIKE TO INCLUDE
  
  ## Screenshots
  ![Viewing an empty schedule](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/695bdaee-de03-4532-9fe0-ef3f39af1f21)
