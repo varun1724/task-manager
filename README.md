@@ -53,7 +53,8 @@ This screen allows the user to delete their goals or tasks. In the image above, 
 
 ### Class Diagram
 
-![umlclassdiagram](https://user-images.githubusercontent.com/103800231/236993307-6cf53752-905b-4580-b8d6-6b1def90e44c.png)
+![umlclassdiagram]![umlchartfinal 001](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/103800231/0fa1896d-4e28-4d5d-8388-7853dabfb095)
+
 
 TODO - EDIT CLASS DIAGRAM AND DESCRIPTION. MENTION SOLID PRINCIPLES THAT WERE USED
 
