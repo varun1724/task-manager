@@ -60,7 +60,7 @@ The interaction of the classes is like this:
 
 The main program creates two lists which are goal and events. These are instances of GoalList and the class EventList. The GoalList contains the list of goals which are instances of the goal class. The goal class contains an EventList. The EventList is again the list of objects of events. When the application starts the user can create a goal and add tasks to the goal. Also, the tasks can be created independently.
 
-While designing this program, we made sure that we followed the SOLID principles. For example, we made sure that each class has a single responsibility. Also, we at designed the classes in such a way that it follows the open and closed principle. You can add more classes without changing the code which acts on the classes. We also made sure that the other project principles are taken care of.
+While designing this program, we made sure that we followed the SOLID principles. For example, we designed the classes in such a way that it follows the open and closed principle. You can add more classes without changing the code which acts on the classes. The interface segregation principle was also applied, as users are not forced to implement any interfaces they do not user. Furthermore, we applied the dependency inversion principle to enrure that no high level modules depend on low level ones.
  
  ## Screenshots
  ![Viewing an empty schedule](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/112217896/695bdaee-de03-4532-9fe0-ef3f39af1f21)
