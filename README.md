@@ -67,11 +67,6 @@ The interaction of the classes is like this:
 
 When the application starts it loads the task data using the storage class which in turn receives stored user data from the db class, then the task data is populated in the calendar and displayed. When the user clicks on a particular day, they would see the task in that specific day. Through clicking the day, the user would be able to add, delete, and edit the task. The task manager also uses the scheduler which in turn uses the task data to prioritize the tasks as per the priority given by the user. The user would be able to edit the tasks and increase or decrease the priority. A task can also be made up of subtasks.
 
-
- > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
-
- 
  > ## Final deliverable
  TODO - IN PROGRESS AND IN TESTING COLUMNS NEED TO BE EMPTY. TODO COLUMN SHOULD INCLUDE ANY KNOWN BUGS OR FEATURES WE WOULD LIKE TO INCLUDE
  
