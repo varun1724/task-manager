@@ -55,18 +55,13 @@ This screen allows the user to delete their goals or tasks. In the image above, 
 
 ![umlclassdiagram](https://github.com/cs100/final-project-pthak008-jchan517-2/assets/103800231/0fa1896d-4e28-4d5d-8388-7853dabfb095)
 
-
-TODO - EDIT CLASS DIAGRAM AND DESCRIPTION. MENTION SOLID PRINCIPLES THAT WERE USED
-
-Above is the OMT class Diagram for the Task Scheduler. The Program functions by providing the user with a basic user interface that shows a calendar. The TaskScheduler class is composed of a Calendar object and a Scheduler object. When the startTaskManager() function is called from main, a case begins to handle the UI of the program and call the functions in both the Calendar and Scheduler classes to be able to display a calendar and allow for it to function. The Design for the program's menus and directories can be found in the user interface above. The task scheduler uses the Singleton design pattern to ensure that only one instance of a task management is created at a time so that the Task Manager can instatiate only one Task Management window at a time. The Task Manager class also contains a ClearScreen() object to be able to close out of the Task Manager.
-
-The storage class helps the Task Manager to store the tasks persistently to a file or a database (we haven't decided yet). The db class interfaces with the file or database. This allows the project to potentially scale if we wanted to in the future, and we can use a variety of storage methods.
-
-The calendar class displays the tasks on a daily basis, it in turn uses the Day class which is made up of a number of tasks in that specific day. In the day class we can add tasks, delete tasks, and edit tasks.
+The above image is an UML class diagram of the classes used in the task scheduler. The program starts by showing the command line menu which consists of create goal, edit goal, delete goal, create task, edit task, delete task, and display schedule. The user can select an option through entering the number which is listed in front of each menu item. If you are reading this, you can refer to the screenshots for how to navigate the application to create goals and tasks and display the schedule.
 
 The interaction of the classes is like this:
 
-When the application starts it loads the task data using the storage class which in turn receives stored user data from the db class, then the task data is populated in the calendar and displayed. When the user clicks on a particular day, they would see the task in that specific day. Through clicking the day, the user would be able to add, delete, and edit the task. The task manager also uses the scheduler which in turn uses the task data to prioritize the tasks as per the priority given by the user. The user would be able to edit the tasks and increase or decrease the priority. A task can also be made up of subtasks.
+The main program creates two lists which are goal and events. These are instances of GoalList and the class EventList. The GoalList contains the list of goals which are instances of the goal class. The goal class contains an EventList. The EventList is again the list of objects of events. When the application starts the user can create a goal and add tasks to the goal. Also, the tasks can be created independently.
+
+While designing this program, we made sure that we followed the SOLID principles. For example, we made sure that each class has a single responsibility. Also, we at designed the classes in such a way that it follows the open and closed principle. You can add more classes without changing the code which acts on the classes. We also made sure that the other project principles are taken care of.
 
  TODO - IN PROGRESS AND IN TESTING COLUMNS NEED TO BE EMPTY. TODO COLUMN SHOULD INCLUDE ANY KNOWN BUGS OR FEATURES WE WOULD LIKE TO INCLUDE
  
